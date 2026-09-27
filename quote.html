@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Request a Quote | GearSwift</title>
+<meta name="description" content="Request a quote for custom gears made in Canada. Upload drawings, CAD files or photos. Quotes usually returned the same business day.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23c8102e' d='M43 4h14l2 11a36 36 0 0 1 9 4l9-7 10 10-7 9a36 36 0 0 1 4 9l11 2v14l-11 2a36 36 0 0 1-4 9l7 9-10 10-9-7a36 36 0 0 1-9 4l-2 11H43l-2-11a36 36 0 0 1-9-4l-9 7-10-10 7-9a36 36 0 0 1-4-9L5 57V43l11-2a36 36 0 0 1 4-9l-7-9 10-10 9 7a36 36 0 0 1 9-4zM50 34a16 16 0 1 0 0 32 16 16 0 0 0 0-32z'/%3E%3C/svg%3E">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="gear" viewBox="0 0 100 100"><path fill="currentColor" d="M43 4h14l2 11a36 36 0 0 1 9 4l9-7 10 10-7 9a36 36 0 0 1 4 9l11 2v14l-11 2a36 36 0 0 1-4 9l7 9-10 10-9-7a36 36 0 0 1-9 4l-2 11H43l-2-11a36 36 0 0 1-9-4l-9 7-10-10 7-9a36 36 0 0 1-4-9L5 57V43l11-2a36 36 0 0 1 4-9l-7-9 10-10 9 7a36 36 0 0 1 9-4zM50 34a16 16 0 1 0 0 32 16 16 0 0 0 0-32z"/></symbol>
+</svg>
+
+<div class="strip">
+  <div class="wrap">
+    <div><span class="maple">&#9670;</span>Made in Canada. Priced in CAD. No duties or brokerage.</div>
+    <div class="contact"><a href="mailto:quotes@gearswift.ca">quotes@gearswift.ca</a></div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="/" class="logo"><svg><use href="#gear"/></svg><span>Gear<b>Swift</b></span></a>
+    <nav class="site-nav">
+      <a href="/#services">Services</a>
+      <a href="/#lead-times">Lead Times</a>
+      <a href="/#capabilities">Capabilities</a>
+      <a href="/#canadian">Why Canadian</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-head">
+  <div class="wrap">
+    <h1>Request a Quote</h1>
+    <p>Three short steps. Upload your drawings, CAD files or photos and we'll reply with a price and ship date, usually the same business day.</p>
+  </div>
+</section>
+
+<div class="wrap quote-layout">
+  <main>
+    <ol class="steps" id="steps">
+      <li class="active"><span>1</span><b class="lbl-long">Your </b>Info</li>
+      <li><span>2</span>Parts<b class="lbl-long"> &amp; Files</b></li>
+      <li><span>3</span>Review</li>
+    </ol>
+
+    <form id="quote" novalidate>
+      <div class="hp" aria-hidden="true"><label>Website <input name="website" tabindex="-1" autocomplete="off"></label></div>
+
+      <!-- Step 1 -->
+      <section class="panel" data-step="1">
+        <h2>Your information</h2>
+        <p class="sub">Fields marked <span class="req">*</span> are required.</p>
+        <div class="grid-2">
+          <div class="field"><label for="firstName">First name <span class="req">*</span></label><input id="firstName" autocomplete="given-name" required><div class="err">Required</div></div>
+          <div class="field"><label for="lastName">Last name <span class="req">*</span></label><input id="lastName" autocomplete="family-name" required><div class="err">Required</div></div>
+          <div class="field"><label for="company">Company</label><input id="company" autocomplete="organization"></div>
+          <div class="field"><label for="phone">Phone <span class="req">*</span></label><input id="phone" type="tel" autocomplete="tel" required><div class="err">Required</div></div>
+          <div class="field span-2"><label for="email">Email <span class="req">*</span></label><input id="email" type="email" autocomplete="email" required><div class="err">Enter a valid email address</div></div>
+          <div class="field span-2"><label for="street">Street address</label><input id="street" autocomplete="street-address"></div>
+        </div>
+        <div class="grid-3" style="margin-top:18px">
+          <div class="field"><label for="city">City <span class="req">*</span></label><input id="city" autocomplete="address-level2" required><div class="err">Required</div></div>
+          <div class="field"><label for="region" id="regionLabel">Province <span class="req">*</span></label><select id="region" autocomplete="address-level1" required></select><div class="err">Required</div></div>
+          <div class="field"><label for="postal" id="postalLabel">Postal code</label><input id="postal" autocomplete="postal-code"></div>
+        </div>
+        <div class="grid-2" style="margin-top:18px">
+          <div class="field"><label for="country">Country <span class="req">*</span></label>
+            <select id="country" autocomplete="country-name"><option>Canada</option><option>United States</option></select></div>
+          <div class="field"><span class="label">Best way to reach you</span>
+            <div class="checks">
+              <label><input type="checkbox" name="contactBy" value="Email" checked> Email</label>
+              <label><input type="checkbox" name="contactBy" value="Phone"> Phone</label>
+              <label><input type="checkbox" name="contactBy" value="Text"> Text</label>
+            </div></div>
+        </div>
+        <div class="form-nav"><span></span><button type="button" class="btn btn-red arrow" data-next>Continue to parts</button></div>
+      </section>
+
+      <!-- Step 2 -->
+      <section class="panel" data-step="2" hidden>
+        <h2>Parts &amp; files</h2>
+        <p class="sub">Add one entry per part. Send every spec you have: drawings, CAD models, or clear photos showing outside diameter, bore, face width and tooth count.</p>
+        <p class="limits">Up to <b>10 files</b> and <b>50 MB</b> total. PDF, DXF, DWG, STEP, IGES, STL, JPG, PNG, HEIC or ZIP. Currently: <b id="fileTotals">0 files, 0 MB</b></p>
+
+        <div id="parts"></div>
+        <button type="button" class="add-part" id="addPart">+ Add another part</button>
+
+        <div class="field" style="margin-top:36px">
+          <span class="label">Turnaround needed <span class="req">*</span></span>
+          <div class="speed" role="radiogroup">
+            <label><input type="radio" name="speed" value="Standard (3 weeks)" checked><strong>Standard</strong><small>3 weeks</small></label>
+            <label><input type="radio" name="speed" value="Fast (2 weeks)"><strong>Fast</strong><small>2 weeks</small></label>
+            <label><input type="radio" name="speed" value="Express (1 week)"><strong>Express</strong><small>1 week</small></label>
+            <label><input type="radio" name="speed" value="Priority (72 hours)"><strong>Priority</strong><small>72 hours</small></label>
+            <label class="emerg"><input type="radio" name="speed" value="Emergency (48 hours)"><strong>Emergency</strong><small>48 hours</small></label>
+          </div>
+        </div>
+        <div class="field" style="margin-top:22px"><label for="notes">Anything else we should know?</label>
+          <textarea id="notes" placeholder="Application, operating conditions, heat treatment, mating parts, delivery location..."></textarea></div>
+
+        <div class="form-nav"><button type="button" class="back" data-back>&larr; Back</button><button type="button" class="btn btn-red arrow" data-next>Review request</button></div>
+      </section>
+
+      <!-- Step 3 -->
+      <section class="panel review" data-step="3" hidden>
+        <h2>Review &amp; send</h2>
+        <p class="sub">Check everything looks right, then send. Your files upload when you press send.</p>
+        <div id="review"></div>
+        <div class="progress" id="progress"><div class="track"><i></i></div><p>Uploading files...</p></div>
+        <div class="form-error" id="formError"></div>
+        <div class="form-nav"><button type="button" class="back" data-back>&larr; Back</button><button type="submit" class="btn btn-red arrow" id="send">Send quote request</button></div>
+      </section>
+
+      <!-- Done -->
+      <section class="panel success" data-step="4" hidden>
+        <div class="tick">&#10003;</div>
+        <h2>Request received</h2>
+        <div class="ref" id="refNo"></div>
+        <p>We sent a confirmation to <strong id="doneEmail"></strong>. Expect a price and ship date shortly, usually within one business hour.</p>
+        <p>Missing a drawing or photo? Just reply to the confirmation email and attach it.</p>
+        <p style="margin-top:28px"><a href="/" class="btn btn-dark">Back to home</a></p>
+      </section>
+    </form>
+  </main>
+
+  <aside class="quote-aside">
+    <div class="aside-img" role="img" aria-label="Worn gears"></div>
+    <div class="box tips">
+      <h3>What to send</h3>
+      <ul>
+        <li><strong>Have a drawing?</strong> Send it, along with the CAD model if you have one.</li>
+        <li><strong>Only have the part?</strong> Photograph it next to a ruler and give us the OD, bore, face width and tooth count.</li>
+        <li><strong>Know the tooth data?</strong> Module or DP, pressure angle and helix angle save a lot of back-and-forth.</li>
+        <li><strong>Unsure of the material?</strong> Describe the application and we'll recommend one.</li>
+      </ul>
+    </div>
+    <div class="box dark">
+      <h3>Line down?</h3>
+      <p>Choose <strong style="color:#fff">Emergency</strong> turnaround. It moves your request to the top of the pile. You can also email photos straight to <a href="mailto:quotes@gearswift.ca">quotes@gearswift.ca</a>.</p>
+    </div>
+  </aside>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="legal" style="padding-top:0">
+      <span>&copy; <span class="yr"></span> GearSwift. Custom gears, made in Canada.</span>
+      <span>Your files are only used to prepare your quote.</span>
+    </div>
+  </div>
+</footer>
+
+<template id="partTpl">
+  <div class="part">
+    <div class="part-head"><h3>Part <span class="n">1</span></h3><button type="button" class="remove">Remove</button></div>
+    <div class="part-body">
+      <div class="grid-2">
+        <div class="field span-2"><label>Part name or number</label><input class="p-desc" placeholder="e.g. Conveyor drive pinion, OEM #4471-B"></div>
+        <div class="field"><label>Part type</label>
+          <select class="p-type">
+            <option value="">Not sure</option><option>Spur gear</option><option>Helical gear</option><option>Bevel / mitre gear</option><option>Worm / worm wheel</option><option>Internal gear</option><option>Rack / pinion</option><option>Sprocket</option><option>Spline / shaft</option><option>Other</option>
+          </select></div>
+        <div class="field"><label>Quantity <span class="req">*</span></label><input class="p-qty" type="number" min="1" inputmode="numeric" value="1" required><div class="err">Required</div></div>
+        <div class="field span-2"><label>Material <span class="req">*</span></label><input class="p-mat" list="materials" placeholder="e.g. 4140 steel, bronze, nylon, or 'recommend one'" required><div class="err">Required. Type "not sure" if you don't know</div></div>
+        <div class="field span-2"><label>Specs &amp; notes</label><textarea class="p-notes" placeholder="Tooth count, OD, bore, face width, module/DP, pressure angle, heat treat, keyway..."></textarea></div>
+      </div>
+      <label class="drop">
+        <input type="file" multiple accept=".pdf,.dxf,.dwg,.step,.stp,.iges,.igs,.stl,.x_t,.sldprt,.jpg,.jpeg,.png,.heic,.webp,.zip,.doc,.docx,.xls,.xlsx,.txt,image/*">
+        <strong>Drop files here or click to browse</strong>
+        <p>Drawings, CAD models or photos for this part</p>
+      </label>
+      <ul class="files"></ul>
+    </div>
+  </div>
+</template>
+
+<datalist id="materials">
+  <option value="4140 alloy steel"><option value="4340 alloy steel"><option value="8620 (carburized)"><option value="1045 carbon steel">
+  <option value="303 stainless"><option value="316 stainless"><option value="17-4 stainless"><option value="Bronze (SAE 660)">
+  <option value="Aluminum bronze"><option value="Aluminum 6061"><option value="Brass"><option value="Ductile iron">
+  <option value="Nylon"><option value="Acetal (Delrin)"><option value="UHMW"><option value="Not sure - please recommend">
+</datalist>
+
+<script type="module">
+  import { upload } from './js/blob-upload.js';
+
+  const MAX_FILES = 10;
+  const MAX_TOTAL = 50 * 1024 * 1024;
+  const MAX_EACH = 25 * 1024 * 1024;
+
+  const PROVINCES = ['Alberta', 'British Columbia', 'Manitoba', 'New Brunswick', 'Newfoundland and Labrador', 'Northwest Territories', 'Nova Scotia', 'Nunavut', 'Ontario', 'Prince Edward Island', 'Quebec', 'Saskatchewan', 'Yukon'];
+  const STATES = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
+
+  const $ = (s, el = document) => el.querySelector(s);
+  const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+  const form = $('#quote');
+  const partsEl = $('#parts');
+  const partFiles = new WeakMap(); // part element -> File[]
+  let step = 1;
+
+  document.querySelectorAll('.yr').forEach((e) => (e.textContent = new Date().getFullYear()));
+
+  const fmtSize = (b) => (b >= 1048576 ? (b / 1048576).toFixed(1) + ' MB' : Math.max(1, Math.round(b / 1024)) + ' KB');
+  const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+  // ----- Country / region -----
+  function fillRegions() {
+    const us = $('#country').value === 'United States';
+    $('#region').innerHTML = '<option value="">Select...</option>' + (us ? STATES : PROVINCES).map((p) => `<option>${p}</option>`).join('');
+    $('#regionLabel').innerHTML = (us ? 'State' : 'Province') + ' <span class="req">*</span>';
+    $('#postalLabel').textContent = us ? 'ZIP code' : 'Postal code';
+  }
+  $('#country').addEventListener('change', fillRegions);
+  fillRegions();
+
+  // ----- Parts -----
+  function allFiles() { return $$('.part', partsEl).flatMap((p) => partFiles.get(p) || []); }
+
+  function updateTotals() {
+    const f = allFiles();
+    const total = f.reduce((s, x) => s + x.size, 0);
+    $('#fileTotals').textContent = `${f.length} file${f.length === 1 ? '' : 's'}, ${(total / 1048576).toFixed(1)} MB`;
+  }
+
+  function renumber() {
+    $$('.part', partsEl).forEach((p, i) => {
+      $('.n', p).textContent = i + 1;
+      $('.remove', p).hidden = $$('.part', partsEl).length === 1;
+    });
+  }
+
+  function renderFiles(part) {
+    $('.files', part).innerHTML = (partFiles.get(part) || []).map((f, i) =>
+      `<li><span class="name">${esc(f.name)}</span><span class="size">${fmtSize(f.size)}</span><button type="button" data-rm="${i}" aria-label="Remove ${esc(f.name)}">&times;</button></li>`).join('');
+    updateTotals();
+  }
+
+  function addFiles(part, list) {
+    const current = partFiles.get(part) || [];
+    const existing = allFiles();
+    let total = existing.reduce((s, x) => s + x.size, 0);
+    let count = existing.length;
+    const problems = [];
+    for (const f of list) {
+      if (count >= MAX_FILES) { problems.push(`Only ${MAX_FILES} files per request. Zip extras together or email them after.`); break; }
+      if (f.size > MAX_EACH) { problems.push(`${f.name} is over 25 MB.`); continue; }
+      if (total + f.size > MAX_TOTAL) { problems.push(`${f.name} would take you over the 50 MB total.`); continue; }
+      current.push(f); total += f.size; count++;
+    }
+    partFiles.set(part, current);
+    renderFiles(part);
+    if (problems.length) alert(problems.join('\n'));
+  }
+
+  function addPart(prefill = {}) {
+    const part = $('#partTpl').content.firstElementChild.cloneNode(true);
+    partFiles.set(part, []);
+    if (prefill.type) $('.p-type', part).value = prefill.type;
+    if (prefill.qty) $('.p-qty', part).value = prefill.qty;
+    const drop = $('.drop', part);
+    const input = $('input[type=file]', drop);
+    input.addEventListener('change', () => { addFiles(part, [...input.files]); input.value = ''; });
+    ['dragenter', 'dragover'].forEach((ev) => drop.addEventListener(ev, (e) => { e.preventDefault(); drop.classList.add('over'); }));
+    ['dragleave', 'drop'].forEach((ev) => drop.addEventListener(ev, (e) => { e.preventDefault(); drop.classList.remove('over'); }));
+    drop.addEventListener('drop', (e) => addFiles(part, [...e.dataTransfer.files]));
+    $('.files', part).addEventListener('click', (e) => {
+      const i = e.target.dataset.rm;
+      if (i === undefined) return;
+      partFiles.get(part).splice(Number(i), 1);
+      renderFiles(part);
+    });
+    $('.remove', part).addEventListener('click', () => { part.remove(); renumber(); updateTotals(); });
+    partsEl.appendChild(part);
+    renumber();
+    return part;
+  }
+  $('#addPart').addEventListener('click', () => { const p = addPart(); $('.p-desc', p).focus(); });
+
+  // Prefill from links like quote.html?type=prototype or ?speed=emergency
+  const params = new URLSearchParams(location.search);
+  const typeQty = { replacement: 1, prototype: 1, production: 50 };
+  addPart({ qty: typeQty[params.get('type')] });
+  if (params.get('type')) $('#notes').value = { replacement: 'Replacement for a worn or broken part.', prototype: 'Prototype.', production: 'Production run.' }[params.get('type')] || '';
+  if (params.get('speed') === 'emergency') $('input[name=speed][value^="Emergency"]').checked = true;
+
+  // ----- Validation -----
+  function check(field, ok) { field.closest('.field').classList.toggle('invalid', !ok); return ok; }
+  function validateStep(n) {
+    let ok = true;
+    if (n === 1) {
+      for (const id of ['firstName', 'lastName', 'phone', 'city', 'region']) ok = check($('#' + id), $('#' + id).value.trim() !== '') && ok;
+      ok = check($('#email'), /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($('#email').value.trim())) && ok;
+    }
+    if (n === 2) {
+      for (const p of $$('.part', partsEl)) {
+        ok = check($('.p-mat', p), $('.p-mat', p).value.trim() !== '') && ok;
+        ok = check($('.p-qty', p), Number($('.p-qty', p).value) >= 1) && ok;
+      }
+    }
+    if (!ok) $('.field.invalid input, .field.invalid select', $(`[data-step="${n}"]`))?.focus();
+    return ok;
+  }
+  form.addEventListener('input', (e) => e.target.closest('.field')?.classList.remove('invalid'));
+
+  // ----- Steps -----
+  function go(n) {
+    step = n;
+    $$('[data-step]').forEach((s) => (s.hidden = Number(s.dataset.step) !== n));
+    $$('#steps li').forEach((li, i) => { li.classList.toggle('active', i + 1 === n); li.classList.toggle('done', i + 1 < n); });
+    $('#steps').hidden = n === 4;
+    if (n === 3) renderReview();
+    window.scrollTo({ top: $('#steps').getBoundingClientRect().top + scrollY - 100, behavior: 'smooth' });
+  }
+  form.addEventListener('click', (e) => {
+    if (e.target.closest('[data-next]')) { if (validateStep(step)) go(step + 1); }
+    if (e.target.closest('[data-back]')) go(step - 1);
+    const edit = e.target.closest('[data-edit]');
+    if (edit) go(Number(edit.dataset.edit));
+  });
+
+  // ----- Collect & review -----
+  function collect() {
+    return {
+      website: form.website.value,
+      customer: {
+        firstName: $('#firstName').value.trim(), lastName: $('#lastName').value.trim(), company: $('#company').value.trim(),
+        email: $('#email').value.trim(), phone: $('#phone').value.trim(), street: $('#street').value.trim(),
+        city: $('#city').value.trim(), region: $('#region').value, postal: $('#postal').value.trim(), country: $('#country').value,
+        contactBy: $$('input[name=contactBy]:checked').map((c) => c.value),
+      },
+      parts: $$('.part', partsEl).map((p) => ({
+        description: $('.p-desc', p).value.trim(), gearType: $('.p-type', p).value, material: $('.p-mat', p).value.trim(),
+        quantity: $('.p-qty', p).value, notes: $('.p-notes', p).value.trim(), files: [],
+      })),
+      turnaround: $('input[name=speed]:checked').value,
+      notes: $('#notes').value.trim(),
+    };
+  }
+
+  function renderReview() {
+    const d = collect();
+    const c = d.customer;
+    const row = (k, v) => (v ? `<dt>${k}</dt><dd>${esc(v)}</dd>` : '');
+    const parts = $$('.part', partsEl);
+    $('#review').innerHTML = `
+      <h3>Contact <button type="button" data-edit="1">Edit</button></h3>
+      <dl>${row('Name', c.firstName + ' ' + c.lastName)}${row('Company', c.company)}${row('Email', c.email)}${row('Phone', c.phone)}
+        ${row('Location', [c.street, c.city, c.region, c.postal, c.country].filter(Boolean).join(', '))}${row('Contact by', c.contactBy.join(', ') || 'Email')}</dl>
+      ${d.parts.map((p, i) => `
+        <h3>Part ${i + 1}${p.description ? ': ' + esc(p.description) : ''} <button type="button" data-edit="2">Edit</button></h3>
+        <dl>${row('Type', p.gearType || 'Not sure')}${row('Material', p.material)}${row('Quantity', p.quantity)}${row('Specs', p.notes)}
+          <dt>Files</dt><dd>${(partFiles.get(parts[i]) || []).map((f) => esc(f.name) + ` <span style="color:var(--muted)">(${fmtSize(f.size)})</span>`).join('<br>') || '<span style="color:var(--muted)">None</span>'}</dd></dl>`).join('')}
+      <h3>Turnaround <button type="button" data-edit="2">Edit</button></h3>
+      <dl>${row('Needed', d.turnaround)}${row('Notes', d.notes)}</dl>`;
+  }
+
+  // ----- Submit -----
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (step !== 3) return;
+    const btn = $('#send');
+    const err = $('#formError');
+    const prog = $('#progress');
+    err.classList.remove('show');
+    btn.disabled = true;
+
+    const data = collect();
+    const parts = $$('.part', partsEl);
+    const jobs = parts.flatMap((p, pi) => (partFiles.get(p) || []).map((file) => ({ pi, file, loaded: 0 })));
+    const totalBytes = jobs.reduce((s, j) => s + j.file.size, 0);
+    const folder = `quotes/${new Date().toISOString().slice(0, 10)}-${Math.random().toString(36).slice(2, 8)}`;
+
+    try {
+      if (jobs.length) {
+        prog.classList.add('show');
+        const setProgress = () => {
+          const loaded = jobs.reduce((s, j) => s + j.loaded, 0);
+          const pct = totalBytes ? Math.round((loaded / totalBytes) * 100) : 100;
+          $('.track i', prog).style.width = pct + '%';
+          $('p', prog).textContent = `Uploading ${jobs.length} file${jobs.length === 1 ? '' : 's'}... ${pct}%`;
+        };
+        setProgress();
+        // Two at a time keeps things moving without choking a slow connection.
+        const queue = [...jobs];
+        const worker = async () => {
+          while (queue.length) {
+            const j = queue.shift();
+            const safe = j.file.name.replace(/[^\w.\-]+/g, '_').slice(-100);
+            const blob = await upload(`${folder}/${safe}`, j.file, {
+              access: 'public',
+              handleUploadUrl: '/api/upload',
+              multipart: j.file.size > 8 * 1024 * 1024,
+              onUploadProgress: (ev) => { j.loaded = ev.loaded; setProgress(); },
+            });
+            j.loaded = j.file.size; setProgress();
+            data.parts[j.pi].files.push({ name: j.file.name, url: blob.url, size: j.file.size });
+          }
+        };
+        await Promise.all([worker(), worker()]);
+        $('p', prog).textContent = 'Files uploaded. Sending your request...';
+      }
+
+      const res = await fetch('/api/quote', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+      const out = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(out.error || 'Something went wrong sending your request.');
+
+      $('#refNo').textContent = out.ref;
+      $('#doneEmail').textContent = data.customer.email;
+      go(4);
+    } catch (ex) {
+      console.error(ex);
+      const msg = /blob/i.test(ex.message) ? 'One of your files could not be uploaded.' : ex.message;
+      err.innerHTML = `<strong>Your request didn't go through.</strong> ${esc(msg)} Please try again, or email your files to <a href="mailto:quotes@gearswift.ca">quotes@gearswift.ca</a>.`;
+      err.classList.add('show');
+      prog.classList.remove('show');
+      btn.disabled = false;
+    }
+  });
+</script>
+</body>
+</html>
