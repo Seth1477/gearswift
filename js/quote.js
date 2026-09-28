@@ -5,7 +5,7 @@ import { upload } from './blob-upload.js';
 // Example: const SHOP_PHONE = '1-905-555-0123';
 const SHOP_PHONE = '';
 
-const DRAFT_KEY = 'gearswift-quote-draft-v1';
+const DRAFT_KEY = 'hotshot-quote-draft-v1';
 const MAX_FILES = 10;
 const MAX_EACH = 25 * 1024 * 1024;
 const MAX_TOTAL = 50 * 1024 * 1024;
@@ -306,7 +306,7 @@ async function submit() {
   } catch (ex) {
     console.error(ex);
     const msg = /blob|upload|token/i.test(ex.message) ? 'One of your photos could not be uploaded.' : ex.message;
-    err.innerHTML = `<strong>Your request didn't go through.</strong> ${esc(msg)} Your answers are saved. Please try again, or email your photos to <a href="mailto:quotes@gearswift.ca">quotes@gearswift.ca</a>.`;
+    err.innerHTML = `<strong>Your request didn't go through.</strong> ${esc(msg)} Your answers are saved. Please try again, or email your photos to <a href="mailto:quotes@hotshotgears.ca">quotes@hotshotgears.ca</a>.`;
     err.hidden = false;
     prog.hidden = true;
   } finally {

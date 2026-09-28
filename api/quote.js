@@ -125,7 +125,7 @@ module.exports = async (req, res) => {
 
   try {
     await transporter.sendMail({
-      from: from('GearSwift Quotes'),
+      from: from('Hotshot Gears Quotes'),
       to,
       replyTo: `"${q.contact.name}" <${q.contact.email}>`,
       priority: q.urgency === 'emergency' ? 'high' : 'normal',
@@ -139,8 +139,8 @@ module.exports = async (req, res) => {
 
   // The owner already has the full request, so these two must not fail the submission.
   const extras = await Promise.allSettled([
-    transporter.sendMail({ from: from('GearSwift Quotes'), to, attachments, ...emails.shop(q, { attached }) }),
-    transporter.sendMail({ from: from('GearSwift'), to: q.contact.email, replyTo: to, ...emails.customer(q, { shopPhone: process.env.SHOP_PHONE }) }),
+    transporter.sendMail({ from: from('Hotshot Gears Quotes'), to, attachments, ...emails.shop(q, { attached }) }),
+    transporter.sendMail({ from: from('Hotshot Gears'), to: q.contact.email, replyTo: to, ...emails.customer(q, { shopPhone: process.env.SHOP_PHONE }) }),
   ]);
   extras.forEach((r) => r.status === 'rejected' && console.error('secondary email failed', r.reason));
 

@@ -140,7 +140,7 @@ function customer(q, { shopPhone }) {
     '',
     'Have more photos, a drawing, or measurements? Just reply to this email and attach them.',
     '',
-    'GearSwift',
+    'Hotshot Gears',
     'Custom gears, made in Canada',
   ];
   return {
