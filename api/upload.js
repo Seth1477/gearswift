@@ -4,28 +4,22 @@ const { handleUpload } = require('@vercel/blob/client');
 
 const MAX_FILE_BYTES = 25 * 1024 * 1024;
 
-// CAD formats usually arrive as application/octet-stream, so that has to be allowed.
+// jpg, png, heic, pdf, dwg, dxf, step. Browsers often report CAD files and HEIC photos as
+// application/octet-stream (or nothing), so that has to be allowed too.
 const ALLOWED_TYPES = [
-  'image/*',
+  'image/jpeg',
+  'image/png',
+  'image/heic',
+  'image/heif',
   'application/pdf',
   'application/octet-stream',
-  'application/zip',
-  'application/x-zip-compressed',
   'application/acad',
+  'image/vnd.dwg',
   'application/dxf',
   'image/vnd.dxf',
-  'image/vnd.dwg',
   'model/step',
-  'model/iges',
   'application/step',
-  'application/iges',
-  'application/sla',
-  'model/stl',
-  'text/plain',
-  'application/msword',
-  'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-  'application/vnd.ms-excel',
-  'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+  'application/x-step',
 ];
 
 module.exports = async (req, res) => {

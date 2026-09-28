@@ -1,0 +1,39 @@
+/* Printed blank form: black and white, write-in lines, sketch box. Loaded with media="print". */
+
+@page { size: letter; margin: 0.45in 0.5in; }
+
+body > *:not(.print-form) { display: none !important; }
+body { background: #fff !important; color: #000 !important; font-family: Arial, Helvetica, sans-serif; font-size: 10pt; line-height: 1.3; }
+* { color: #000 !important; background: transparent !important; box-shadow: none !important; }
+
+.print-form { display: block !important; }
+.print-form h1, .print-form h2 { font-family: Arial, Helvetica, sans-serif; text-transform: uppercase; letter-spacing: .02em; }
+
+.pf-head { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2.5pt solid #000; padding-bottom: 6pt; margin-bottom: 8pt; }
+.pf-head h1 { font-size: 18pt; line-height: 1; }
+.pf-head .brand { font-size: 10pt; font-weight: bold; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 3pt; }
+.pf-head .contact { text-align: right; font-size: 9pt; }
+.pf-intro { font-size: 9pt; margin-bottom: 8pt; }
+
+.pf-section { break-inside: avoid; margin-bottom: 7pt; }
+.pf-section h2 { font-size: 10.5pt; border-bottom: 1pt solid #000; padding-bottom: 2pt; margin-bottom: 5pt; }
+.pf-section h2 small { font-weight: normal; text-transform: none; letter-spacing: 0; font-size: 8.5pt; }
+
+.pf-row { display: flex; gap: 14pt; margin-bottom: 4pt; }
+.pf-line { flex: 1; display: flex; align-items: flex-end; gap: 5pt; white-space: nowrap; min-height: 16pt; }
+.pf-line span { font-size: 9pt; }
+.pf-line::after { content: ""; flex: 1; border-bottom: .75pt solid #000; min-width: 40pt; height: 1pt; }
+.pf-line.req span::after { content: " *"; }
+
+.pf-boxes { display: flex; flex-wrap: wrap; gap: 3pt 12pt; font-size: 9pt; margin-bottom: 4pt; align-items: center; }
+.pf-boxes b { font-weight: bold; margin-right: 2pt; }
+.pf-boxes i { font-style: normal; white-space: nowrap; }
+.pf-boxes i::before { content: ""; display: inline-block; width: 8pt; height: 8pt; border: .75pt solid #000; margin-right: 3pt; vertical-align: -1pt; }
+
+.pf-notes { border-bottom: .75pt solid #000; height: 16pt; }
+
+.pf-sketch { border: 1.5pt solid #000; height: 2.55in; position: relative; margin-top: 4pt; }
+.pf-sketch p { position: absolute; top: 5pt; left: 7pt; font-size: 9pt; font-weight: bold; }
+.pf-sketch .scale { position: absolute; bottom: 5pt; right: 7pt; font-size: 8pt; font-weight: normal; }
+
+.pf-foot { font-size: 8pt; border-top: 1pt solid #000; padding-top: 4pt; margin-top: 6pt; display: flex; justify-content: space-between; }
