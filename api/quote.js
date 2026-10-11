@@ -1,6 +1,10 @@
-// Receives a gear quote request (photos already uploaded to Vercel Blob by the browser)
-// and sends three emails: full request to the owner, technical-only summary for a
-// machine shop, and a confirmation to the customer.
+// Receives a quote request or quick contact (photos already uploaded to Vercel Blob by
+// the browser). Every lead is saved to Blob storage first, so it's never lost, then
+// emailed: full request to the owner, a technical-only summary for a machine shop
+// (detailed requests), and a confirmation to the customer when they gave an email.
+//
+// A lead is only rejected when there's no way to contact the person. Missing details,
+// failed uploads and email problems never turn into an error for the customer.
 //
 // Env vars:
 //   GMAIL_USER  - Gmail address that sends the mail
@@ -9,6 +13,7 @@
 //   SHOP_PHONE  - optional; mentioned in emergency auto-replies
 //   BLOB_READ_WRITE_TOKEN - set automatically when a Blob store is connected
 const nodemailer = require('nodemailer');
+const { put } = require('@vercel/blob');
 const { nextRef } = require('./_lib/ref');
 const emails = require('./_lib/emails');
 
@@ -19,6 +24,7 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const clean = (s, max = 200) => String(s ?? '').trim().slice(0, max);
 const oneOf = (v, allowed) => (allowed.includes(v) ? v : '');
+const list = (v, max = 8, len = 60) => (Array.isArray(v) ? v : []).map((x) => clean(x, len)).filter(Boolean).slice(0, max);
 
 function isBlobUrl(u) {
   try {
@@ -35,6 +41,7 @@ function parse(body) {
   const a = body.application || {};
   const l = body.logistics || {};
   return {
+    mode: body.mode === 'quick' ? 'quick' : 'detailed',
     contact: {
       name: clean(c.name, 120),
       company: clean(c.company, 120),
@@ -43,6 +50,7 @@ function parse(body) {
       site: clean(c.site, 120),
     },
     urgency: oneOf(body.urgency, Object.keys(emails.URGENCY)),
+    message: clean(body.message, 4000),
     gear: {
       units: g.units === 'mm' ? 'mm' : 'in',
       type: clean(g.type, 40),
@@ -59,38 +67,89 @@ function parse(body) {
       machine: clean(a.machine),
       makeModel: clean(a.makeModel),
       partNumber: clean(a.partNumber, 80),
-      failure: (Array.isArray(a.failure) ? a.failure : []).map((x) => clean(x, 60)).filter(Boolean).slice(0, 8),
+      failure: list(a.failure),
       notes: clean(a.notes, 4000),
     },
     logistics: {
-      quantity: String(Math.max(0, parseInt(l.quantity, 10) || 0)),
+      quantity: String(Math.max(1, parseInt(l.quantity, 10) || 1)),
       haveOld: clean(l.haveOld, 20),
       canShip: clean(l.canShip, 20),
       haveDrawing: clean(l.haveDrawing, 20),
       repeat: clean(l.repeat, 20),
       prevRef: clean(l.prevRef, 80),
-      docs: (Array.isArray(l.docs) ? l.docs : []).map((x) => clean(x, 60)).filter(Boolean).slice(0, 8),
+      docs: list(l.docs),
       neededBy: /^\d{4}-\d{2}-\d{2}$/.test(l.neededBy || '') ? l.neededBy : '',
     },
     files: (Array.isArray(body.files) ? body.files : [])
       .filter((f) => f && isBlobUrl(f.url))
       .slice(0, MAX_FILES)
       .map((f) => ({ name: clean(f.name) || 'file', url: f.url, size: Number(f.size) || 0 })),
+    failedFiles: list(body.failedFiles, MAX_FILES, 200),
   };
 }
 
-function validate(q) {
-  const missing = [];
-  if (!q.contact.name) missing.push('name');
-  if (!q.contact.company) missing.push('company');
-  if (!q.contact.phone) missing.push('phone');
-  if (!q.contact.email) missing.push('email');
-  if (!q.urgency) missing.push('urgency');
-  if (missing.length) return 'Missing required fields: ' + missing.join(', ');
-  if (!EMAIL_RE.test(q.contact.email)) return 'Invalid email address';
-  if (Number(q.logistics.quantity) < 1) return 'Quantity must be at least 1';
-  if (!q.files.length) return 'At least one photo or file is required';
-  return null;
+// Save the lead before anything else, so an email problem can never lose it.
+async function saveLead(q) {
+  try {
+    await put(`leads/${q.ref}.json`, JSON.stringify({ ...q, receivedAt: new Date().toISOString() }, null, 2), {
+      access: 'public',
+      addRandomSuffix: true, // unguessable URL, since the file holds contact details
+      contentType: 'application/json',
+    });
+    return true;
+  } catch (err) {
+    console.error('save lead failed', err);
+    return false;
+  }
+}
+
+async function sendEmails(q) {
+  if (!process.env.GMAIL_USER || !process.env.GMAIL_PASS) {
+    console.error('GMAIL_USER / GMAIL_PASS not set; lead saved to Blob only', q.ref);
+    return false;
+  }
+  const totalBytes = q.files.reduce((s, f) => s + f.size, 0);
+  const attached = totalBytes <= ATTACH_LIMIT_BYTES;
+  const attachments = attached ? q.files.map((f) => ({ filename: f.name, path: f.url })) : [];
+  const to = process.env.QUOTE_TO || process.env.GMAIL_USER;
+  const from = (name) => `"${name}" <${process.env.GMAIL_USER}>`;
+  const validEmail = EMAIL_RE.test(q.contact.email);
+
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: { user: process.env.GMAIL_USER, pass: process.env.GMAIL_PASS },
+  });
+
+  const send = (msg) => transporter.sendMail(msg).catch(async (err) => {
+    // Attachments are the most likely thing to break a send; retry once without them.
+    if (msg.attachments && msg.attachments.length) {
+      console.error('send with attachments failed, retrying without', err);
+      return transporter.sendMail({ ...msg, attachments: [] });
+    }
+    throw err;
+  });
+
+  let ownerSent = false;
+  try {
+    await send({
+      from: from('Hotshot Gears Quotes'),
+      to,
+      ...(validEmail ? { replyTo: `"${q.contact.name}" <${q.contact.email}>` } : {}),
+      priority: q.urgency === 'emergency' ? 'high' : 'normal',
+      attachments,
+      ...emails.owner(q, { attached }),
+    });
+    ownerSent = true;
+  } catch (err) {
+    console.error('owner email failed', q.ref, err);
+  }
+
+  const extras = [];
+  if (q.mode === 'detailed') extras.push(send({ from: from('Hotshot Gears Quotes'), to, attachments, ...emails.shop(q, { attached }) }));
+  if (validEmail) extras.push(transporter.sendMail({ from: from('Hotshot Gears'), to: q.contact.email, replyTo: to, ...emails.customer(q, { shopPhone: process.env.SHOP_PHONE }) }));
+  const results = await Promise.allSettled(extras);
+  results.forEach((r) => r.status === 'rejected' && console.error('secondary email failed', q.ref, r.reason));
+  return ownerSent;
 }
 
 module.exports = async (req, res) => {
@@ -100,54 +159,26 @@ module.exports = async (req, res) => {
   try {
     body = typeof req.body === 'string' ? JSON.parse(req.body || '{}') : req.body || {};
   } catch {
-    return res.status(400).json({ error: 'Invalid request' });
+    body = {};
   }
 
   // Honeypot: real people never see or fill this field.
   if (body.website) return res.status(200).json({ ok: true, ref: 'GQ-00000000-000' });
 
   const q = parse(body);
-  const problem = validate(q);
-  if (problem) return res.status(400).json({ error: problem });
-
-  if (!process.env.GMAIL_USER || !process.env.GMAIL_PASS) {
-    console.error('GMAIL_USER / GMAIL_PASS not set');
-    return res.status(500).json({ error: 'Email is not configured' });
+  // The only hard requirement: some way to get back to them.
+  if (!q.contact.phone && !q.contact.email) {
+    return res.status(400).json({ error: 'Please add a phone number or email so we can reach you.' });
   }
+  if (!q.contact.name) q.contact.name = 'Not given';
 
   q.ref = await nextRef();
+  const [saved, emailed] = await Promise.all([saveLead(q), sendEmails(q)]);
 
-  const totalBytes = q.files.reduce((s, f) => s + f.size, 0);
-  const attached = totalBytes <= ATTACH_LIMIT_BYTES;
-  const attachments = attached ? q.files.map((f) => ({ filename: f.name, path: f.url })) : [];
-  const to = process.env.QUOTE_TO || process.env.GMAIL_USER;
-  const from = (name) => `"${name}" <${process.env.GMAIL_USER}>`;
-
-  const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: { user: process.env.GMAIL_USER, pass: process.env.GMAIL_PASS },
-  });
-
-  try {
-    await transporter.sendMail({
-      from: from('Hotshot Gears Quotes'),
-      to,
-      replyTo: `"${q.contact.name}" <${q.contact.email}>`,
-      priority: q.urgency === 'emergency' ? 'high' : 'normal',
-      attachments,
-      ...emails.owner(q, { attached }),
-    });
-  } catch (err) {
-    console.error('send quote failed', err);
-    return res.status(500).json({ error: 'Failed to send quote request' });
+  if (!saved && !emailed) {
+    // Nothing recorded it anywhere. The browser falls back to an email hand-off.
+    console.error('LEAD NOT RECORDED', JSON.stringify(q));
+    return res.status(503).json({ error: 'Temporarily unavailable' });
   }
-
-  // The owner already has the full request, so these two must not fail the submission.
-  const extras = await Promise.allSettled([
-    transporter.sendMail({ from: from('Hotshot Gears Quotes'), to, attachments, ...emails.shop(q, { attached }) }),
-    transporter.sendMail({ from: from('Hotshot Gears'), to: q.contact.email, replyTo: to, ...emails.customer(q, { shopPhone: process.env.SHOP_PHONE }) }),
-  ]);
-  extras.forEach((r) => r.status === 'rejected' && console.error('secondary email failed', r.reason));
-
   return res.status(200).json({ ok: true, ref: q.ref });
 };

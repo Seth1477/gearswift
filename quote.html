@@ -41,7 +41,7 @@
 <section class="page-head">
   <div class="wrap">
     <h1>Gear Quote Request</h1>
-    <p>Only your contact details and one photo are required. Skip anything you don't know. We'll work it out from the photos.</p>
+    <p>Send us the gear details, or just your contact info and we'll take it from there. Only your name and a phone or email are required.</p>
   </div>
 </section>
 
@@ -61,24 +61,71 @@
     <form id="quote" novalidate>
       <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
 
+      <!-- 0. Choose a path -->
+      <section class="qf-step" data-step="0" data-name="Start">
+        <h2>How would you like to start?</h2>
+        <p class="sub">Either way, a real person gets back to you fast.</p>
+        <div class="paths">
+          <button type="button" class="path" data-path="quick">
+            <strong>Just get in touch</strong>
+            <span>Don't know the specs, or just want to talk? Leave your name and number. Takes 30 seconds.</span>
+            <em>Quick contact &rarr;</em>
+          </button>
+          <button type="button" class="path" data-path="detailed">
+            <strong>I know the gear details</strong>
+            <span>Share specs, photos or drawings for a faster, more accurate quote. Skip anything you don't know.</span>
+            <em>Detailed quote &rarr;</em>
+          </button>
+        </div>
+      </section>
+
+      <!-- Quick contact -->
+      <section class="qf-step" data-step="10" data-name="Quick contact" hidden>
+        <h2>Get in touch</h2>
+        <p class="sub">Just the basics. We'll call or email you to sort out the rest.</p>
+        <div class="fields two">
+          <div class="field"><label for="qName">Name <span class="req">*</span></label><input type="text" id="qName" name="qName" autocomplete="name"><div class="err">Enter your name</div></div>
+          <div class="field"><label for="qCompany">Company <span class="opt">(optional)</span></label><input type="text" id="qCompany" name="qCompany" autocomplete="organization"></div>
+          <div class="field"><label for="qPhone">Phone</label><input type="tel" id="qPhone" name="qPhone" autocomplete="tel"><div class="err">Enter a phone number or email</div></div>
+          <div class="field"><label for="qEmail">Email</label><input type="email" id="qEmail" name="qEmail" autocomplete="email" inputmode="email"><div class="err">Enter a phone number or email</div></div>
+          <div class="field full"><label for="qMessage">What do you need? <span class="opt">(optional)</span></label><textarea id="qMessage" name="qMessage" placeholder="e.g. Broken gear on a conveyor gearbox, need a replacement"></textarea></div>
+          <div class="field full">
+            <span class="label">How urgent? <span class="opt">(optional)</span></span>
+            <div class="choices">
+              <label class="choice"><input type="radio" name="qurgency" value="emergency"><span>Equipment down</span></label>
+              <label class="choice"><input type="radio" name="qurgency" value="urgent"><span>Failing soon</span></label>
+              <label class="choice"><input type="radio" name="qurgency" value="planned"><span>Planned</span></label>
+            </div>
+          </div>
+          <div class="field full">
+            <span class="label">Photos <span class="opt">(optional)</span></span>
+            <div class="photo-actions">
+              <label class="btn btn-red camera-only"><input type="file" id="qCameraInput" accept="image/*" capture="environment">Take photo</label>
+              <label class="btn btn-dark"><input type="file" id="qFileInput" multiple accept=".jpg,.jpeg,.png,.heic,.heif,.pdf,.dwg,.dxf,.step,.stp,image/jpeg,image/png,image/heic,image/heif,application/pdf">Add photos or files</label>
+            </div>
+            <div class="thumbs" id="qThumbs"></div>
+          </div>
+        </div>
+        <p class="hint" style="margin-top:14px">Phone or email, whichever is easier. We just need one way to reach you.</p>
+      </section>
+
       <!-- 1. Contact & urgency -->
       <section class="qf-step" data-step="1" data-name="Contact">
         <h2>Contact &amp; urgency</h2>
         <p class="sub">So we know who to call back, and how fast.</p>
         <div class="fields two">
           <div class="field"><label for="name">Name <span class="req">*</span></label><input type="text" id="name" name="name" autocomplete="name" required><div class="err">Enter your name</div></div>
-          <div class="field"><label for="company">Company <span class="req">*</span></label><input type="text" id="company" name="company" autocomplete="organization" required><div class="err">Enter your company</div></div>
-          <div class="field"><label for="phone">Phone <span class="req">*</span></label><input type="tel" id="phone" name="phone" autocomplete="tel" required><div class="err">Enter a phone number</div></div>
-          <div class="field"><label for="email">Email <span class="req">*</span></label><input type="email" id="email" name="email" autocomplete="email" inputmode="email" required><div class="err">Enter a valid email address</div></div>
+          <div class="field"><label for="company">Company <span class="opt">(optional)</span></label><input type="text" id="company" name="company" autocomplete="organization"></div>
+          <div class="field"><label for="phone">Phone</label><input type="tel" id="phone" name="phone" autocomplete="tel"><div class="err">Enter a phone number or email</div></div>
+          <div class="field"><label for="email">Email</label><input type="email" id="email" name="email" autocomplete="email" inputmode="email"><div class="err">Enter a phone number or email</div></div>
           <div class="field full"><label for="site">City / site <span class="opt">(optional)</span></label><input type="text" id="site" name="site" placeholder="e.g. Hamilton, Plant 2" autocomplete="address-level2"></div>
           <div class="field full" id="urgencyField">
-            <span class="label">How urgent is it? <span class="req">*</span></span>
+            <span class="label">How urgent is it? <span class="opt">(optional)</span></span>
             <div class="choices urgency" role="radiogroup" aria-label="Urgency">
               <label class="choice emerg"><input type="radio" name="urgency" value="emergency"><span><strong>Emergency</strong><small>Equipment is down</small></span></label>
               <label class="choice"><input type="radio" name="urgency" value="urgent"><span><strong>Urgent</strong><small>Failing soon</small></span></label>
               <label class="choice"><input type="radio" name="urgency" value="planned"><span><strong>Planned</strong><small>Spare or scheduled repair</small></span></label>
             </div>
-            <div class="err">Choose how urgent it is</div>
           </div>
         </div>
         <div class="emergency-box" id="emergencyBox" hidden>
@@ -232,7 +279,7 @@
       <!-- 5. Photos -->
       <section class="qf-step" data-step="5" data-name="Photos" hidden>
         <h2>Photos &amp; files</h2>
-        <p class="sub">At least one is required. Good photos often mean we can quote without the gear in hand.</p>
+        <p class="sub">Optional, but photos help us quote faster. If an upload doesn't work, don't worry: your request still goes through.</p>
         <ul class="photo-tips">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="10"/><path d="M6 7v4M10 7v3M14 7v4M18 7v3"/></svg><span>Include a <strong>ruler or tape</strong> in the shot for scale.</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg><span>Shoot it <strong>face-on</strong> and <strong>from the side</strong>.</span></li>
@@ -247,7 +294,6 @@
           <div class="notice warn" id="readdPhotos" hidden>Your answers were restored, but photos can't be saved in the browser. Please add them again.</div>
           <div class="thumbs" id="thumbs"></div>
           <p class="file-count" id="fileCount">0 of 10 files. JPG, PNG, HEIC, PDF, DWG, DXF or STEP, up to 25 MB each.</p>
-          <div class="err">Add at least one photo or file</div>
         </div>
       </section>
 
@@ -256,8 +302,6 @@
         <h2>Review &amp; send</h2>
         <p class="sub">Check it over, then send. Your photos upload when you press send.</p>
         <div id="review"></div>
-        <div class="upload-progress" id="uploadProgress" hidden><div class="track"><i></i></div><p>Uploading...</p></div>
-        <div class="form-error" id="formError" hidden></div>
       </section>
 
       <!-- Done -->
@@ -265,14 +309,32 @@
         <div class="tick">&#10003;</div>
         <h2>Request received</h2>
         <div class="ref" id="refNo"></div>
-        <p>We sent a confirmation to <strong id="doneEmail"></strong>.</p>
+        <p id="doneEmailLine">We sent a confirmation to <strong id="doneEmail"></strong>.</p>
+        <p id="donePhoneLine" hidden>We'll be in touch shortly.</p>
         <p id="doneEmergency" hidden><strong>Urgent requests are reviewed first.</strong> We'll contact you as soon as possible.<span data-has-phone hidden> If you haven't already, call us at <a data-phone-link href="#"><span data-phone></span></a>.</span></p>
-        <p>More photos or a drawing? Reply to the confirmation email and attach them.</p>
+        <p id="doneFilesNote" hidden>Some of your photos didn't upload, but your request came through. We'll ask for them when we get in touch.</p>
+        <p>More photos or a drawing? Email them to <a href="mailto:quotes@hotshotgears.ca">quotes@hotshotgears.ca</a> with your reference number.</p>
         <p style="margin-top:24px"><a href="/" class="btn btn-dark">Back to home</a></p>
+      </section>
+
+      <!-- Sending -->
+      <section class="qf-step sending" data-step="8" hidden>
+        <div class="spinner" aria-hidden="true"></div>
+        <h2>Sending your request</h2>
+        <div class="upload-progress" id="uploadProgress"><div class="track"><i></i></div><p>One moment...</p></div>
+      </section>
+
+      <!-- Couldn't reach the server: hand off to email instead of showing an error -->
+      <section class="qf-step success" data-step="9" hidden>
+        <h2>One last step</h2>
+        <p>Our system is busy right now. Tap the button below to send your request straight to our inbox. Everything is already filled in.</p>
+        <p style="margin-top:20px"><a class="btn btn-red" id="mailtoBtn" href="mailto:quotes@hotshotgears.ca">Send my request by email</a></p>
+        <p style="margin-top:16px"><button type="button" class="linkish" id="retryBtn">Or try sending again</button></p>
       </section>
 
       <div class="qf-nav" id="nav">
         <button type="button" class="btn back" id="backBtn" hidden>&larr; Back</button>
+        <button type="button" class="btn btn-line-dark" id="sendNowBtn" hidden>Send now</button>
         <button type="button" class="btn btn-red" id="nextBtn">Next</button>
       </div>
     </form>

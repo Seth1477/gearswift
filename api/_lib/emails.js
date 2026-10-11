@@ -9,6 +9,9 @@ const URGENCY = {
   planned: { label: 'Planned', detail: 'Planned replacement or spare', tag: '[PLANNED]', color: '#44484d' },
 };
 
+const NO_URGENCY = { label: 'Not specified', detail: 'No urgency given', tag: '[NEW LEAD]', color: '#44484d' };
+const urgencyOf = (q) => URGENCY[q.urgency] || NO_URGENCY;
+
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const fmtSize = (b) => (b >= 1048576 ? (b / 1048576).toFixed(1) + ' MB' : Math.max(1, Math.round(b / 1024)) + ' KB');
 
@@ -87,34 +90,40 @@ const filesHtml = (files, attached) =>
 <p style="margin:0">${files.map((f) => `<a href="${esc(f.url)}">${esc(f.name)}</a> <span style="color:#888">(${fmtSize(f.size)})</span>`).join('<br>')}</p>
 ${attached ? '' : '<p style="color:#888">Too large to attach. Use the links above.</p>'}`;
 
+const failedText = (q) => (q.failedFiles && q.failedFiles.length ? `NOTE: ${q.failedFiles.length} file(s) didn't upload: ${q.failedFiles.join(', ')}. Ask the customer to email them.` : '');
+const failedHtml = (q) => (q.failedFiles && q.failedFiles.length ? `<p style="margin:16px 0 0;padding:10px 12px;background:#fff4e5;color:#7a4b00">${q.failedFiles.length} file(s) didn't upload: ${esc(q.failedFiles.join(', '))}. Ask the customer to email them.</p>` : '');
+
 const wrap = (inner) => `<div style="font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;max-width:640px">${inner}</div>`;
 const banner = (u) => `<p style="display:inline-block;margin:0 0 12px;padding:5px 10px;background:${u.color};color:#fff;font-weight:bold;font-size:13px">${esc(u.label.toUpperCase())}: ${esc(u.detail)}</p>`;
 
 function owner(q, { attached }) {
-  const u = URGENCY[q.urgency];
+  const u = urgencyOf(q);
   const c = q.contact;
-  const tech = technicalSections(q);
+  const quick = q.mode === 'quick';
+  const tech = quick ? [] : technicalSections(q);
   const contactRows = [['Name', c.name], ['Company', c.company], ['Phone', c.phone], ['Email', c.email], ['City / site', c.site]];
   return {
-    subject: `${u.tag} ${q.ref}: ${c.company} (${c.name})`,
+    subject: `${u.tag}${quick ? ' [QUICK CONTACT]' : ''} ${q.ref}: ${c.company ? `${c.company} (${c.name})` : c.name}`,
     text: [
-      `Quote request ${q.ref}`,
+      `${quick ? 'Quick contact' : 'Quote request'} ${q.ref}`,
       `Urgency: ${u.label} (${u.detail})`,
       '',
       renderText([['Contact', contactRows]]),
       '',
+      q.message ? `--- Message ---\n${q.message}\n` : '',
       renderText(tech),
       '',
       filesText(q.files),
+      failedText(q),
     ].join('\n'),
-    html: wrap(`<h2 style="margin:0 0 8px">Quote request ${esc(q.ref)}</h2>${banner(u)}
-${renderHtml([['Contact', contactRows]])}${renderHtml(tech)}${filesHtml(q.files, attached)}
-<p style="margin-top:24px;color:#888;font-size:12px">A copy without contact details was sent separately for forwarding to a machine shop.</p>`),
+    html: wrap(`<h2 style="margin:0 0 8px">${quick ? 'Quick contact' : 'Quote request'} ${esc(q.ref)}</h2>${banner(u)}
+${renderHtml([['Contact', contactRows]])}${q.message ? `<h3 style="margin:22px 0 6px;font-size:15px;text-transform:uppercase;letter-spacing:.04em">Message</h3><p style="margin:0">${esc(q.message).replace(/\n/g, '<br>')}</p>` : ''}${renderHtml(tech)}${filesHtml(q.files, attached)}${failedHtml(q)}
+${quick ? '<p style="margin-top:24px;color:#888;font-size:12px">The customer chose quick contact, so there are no gear details yet. Follow up by phone or email.</p>' : '<p style="margin-top:24px;color:#888;font-size:12px">A copy without contact details was sent separately for forwarding to a machine shop.</p>'}`),
   };
 }
 
 function shop(q, { attached }) {
-  const u = URGENCY[q.urgency];
+  const u = urgencyOf(q);
   const tech = technicalSections(q);
   return {
     subject: `Shop summary ${q.ref} (no customer info): forward for pricing`,
@@ -125,6 +134,7 @@ function shop(q, { attached }) {
       renderText(tech),
       '',
       filesText(q.files),
+      failedText(q),
     ].join('\n'),
     html: wrap(`<p style="margin:0 0 16px;padding:10px 12px;background:#f3f1ec;color:#44484d;font-size:13px">Customer details removed. Check the notes before forwarding, in case the customer typed contact info there.</p>
 <h2 style="margin:0 0 8px">Gear quote ${esc(q.ref)}</h2>${banner(u)}${renderHtml(tech)}${filesHtml(q.files, attached)}`),
@@ -132,16 +142,16 @@ function shop(q, { attached }) {
 }
 
 function customer(q, { shopPhone }) {
-  const u = URGENCY[q.urgency];
-  const first = q.contact.name.split(/\s+/)[0];
+  const first = q.contact.name && q.contact.name !== 'Not given' ? q.contact.name.split(/\s+/)[0] : 'there';
+  const quick = q.mode === 'quick';
   const lines = [
     `Hi ${first},`,
     '',
-    `Thanks for your gear quote request. Your reference number is ${q.ref}.`,
+    quick ? `Thanks for getting in touch. Your reference number is ${q.ref}.` : `Thanks for your gear quote request. Your reference number is ${q.ref}.`,
     '',
     q.urgency === 'emergency'
       ? `You marked this as an emergency, so we'll expedite it and contact you as soon as possible.${shopPhone ? ` If your equipment is down and you haven't called yet, reach us at ${shopPhone}.` : ''}`
-      : "We'll review your photos and details and get back to you with pricing and a ship date.",
+      : quick ? "We'll be in touch shortly to talk through what you need." : "We'll review your photos and details and get back to you with pricing and a ship date.",
     '',
     'Have more photos, a drawing, or measurements? Just reply to this email and attach them.',
     '',
@@ -149,7 +159,7 @@ function customer(q, { shopPhone }) {
     'Fast turnaround custom gears',
   ];
   return {
-    subject: `We received your gear quote request (${q.ref})`,
+    subject: quick ? `Thanks for contacting Hotshot Gears (${q.ref})` : `We received your gear quote request (${q.ref})`,
     text: lines.join('\n'),
     html: wrap(lines.map((l) => (l ? `<p style="margin:0 0 4px">${esc(l)}</p>` : '<br>')).join('')),
   };
