@@ -386,6 +386,7 @@ async function sendPayload(payload) {
 
 function showDone(payload, out) {
   storage.clear();
+  try { if (window.hotshotTrackQuote) window.hotshotTrackQuote(out.ref); } catch (e) { /* tracking must never break the form */ }
   const c = payload.contact;
   $('#refNo').textContent = out.ref;
   $('#doneEmail').textContent = c.email;
