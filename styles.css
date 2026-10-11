@@ -46,8 +46,11 @@ h1, h2, h3 { font-family: var(--head); font-weight: 700; line-height: 1.02; text
 .site-header { background: var(--white); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 40; }
 .site-header .wrap { display: flex; align-items: center; justify-content: space-between; height: 74px; }
 .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--head); font-weight: 700; font-size: 1.7rem; letter-spacing: .02em; text-transform: uppercase; }
-.logo svg { width: 30px; height: 30px; color: var(--red); }
-.logo b { color: var(--red); font-weight: 700; }
+.logo img { width: 48px; height: 48px; flex: none; }
+.logo-word { display: flex; flex-direction: column; line-height: .9; font-size: 1.45rem; letter-spacing: .05em; color: var(--ink); }
+.logo-word b { color: var(--red); font-weight: 700; }
+.site-footer .logo-word { color: #fff; }
+@media (max-width: 600px) { .logo img { width: 42px; height: 42px; } .logo-word { font-size: 1.25rem; } }
 .site-nav { display: flex; align-items: center; gap: 32px; }
 .site-nav a { text-decoration: none; font-family: var(--head); font-weight: 600; font-size: 1.05rem; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-2); }
 .site-nav a:hover { color: var(--ink); }

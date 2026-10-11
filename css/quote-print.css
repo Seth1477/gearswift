@@ -37,3 +37,6 @@ body { background: #fff !important; color: #000 !important; font-family: Arial, 
 .pf-sketch .scale { position: absolute; bottom: 5pt; right: 7pt; font-size: 8pt; font-weight: normal; }
 
 .pf-foot { font-size: 8pt; border-top: 1pt solid #000; padding-top: 4pt; margin-top: 6pt; display: flex; justify-content: space-between; }
+
+.pf-brand { display: flex; align-items: center; gap: 8pt; }
+.pf-mark { width: 38pt; height: 38pt; filter: grayscale(1) contrast(1.4); }
