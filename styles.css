@@ -85,7 +85,10 @@ h1, h2, h3 { font-family: var(--head); font-weight: 700; line-height: 1.02; text
 /* Services: alternating photo rows */
 .service { display: grid; grid-template-columns: 1fr 1fr; min-height: 460px; border-top: 1px solid var(--line); }
 .service:nth-child(even) .service-img { order: 2; }
-.service-img { background-size: cover; background-position: center; min-height: 320px; }
+/* Whole photo shown (contain), over a blurred copy of itself so tall shop photos aren't cropped */
+.service-img { position: relative; overflow: hidden; min-height: 320px; background: #15181b; }
+.service-img::before { content: ""; position: absolute; inset: -30px; background: var(--img) center / cover no-repeat; filter: blur(22px) brightness(.5); }
+.service-img::after { content: ""; position: absolute; inset: 14px; background: var(--img) center / contain no-repeat; }
 .service-body { padding: 64px 7%; display: flex; flex-direction: column; justify-content: center; }
 .service-body h3 { font-size: clamp(2rem, 3.4vw, 2.8rem); margin-bottom: 14px; }
 .service-body > p { color: var(--ink-2); font-size: 1.08rem; max-width: 500px; }
