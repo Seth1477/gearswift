@@ -201,3 +201,18 @@ h1, h2, h3 { font-family: var(--head); font-weight: 700; line-height: 1.02; text
   .levers { grid-template-columns: 1fr; border-top: 0; border-left: 4px solid var(--ink); }
   .levers li, .levers li + li { padding: 0 0 18px 18px; border-left: 0; }
 }
+
+/* Our work gallery */
+.work { display: grid; grid-template-columns: 1.15fr 1fr; grid-template-rows: 1fr 1fr; gap: 14px; margin-top: 40px; }
+.work figure { position: relative; margin: 0; overflow: hidden; background: var(--steel); }
+.work .work-big { grid-row: 1 / 3; }
+.work img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s; }
+.work figure:hover img { transform: scale(1.03); }
+.work figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 40px 20px 18px; background: linear-gradient(transparent, rgba(10,12,14,.88)); color: #d6dade; font-size: .95rem; }
+.work figcaption strong { display: block; font-family: var(--head); font-size: 1.4rem; text-transform: uppercase; color: #fff; letter-spacing: .02em; }
+.work figure:not(.work-big) { aspect-ratio: 4 / 3; }
+@media (max-width: 760px) {
+  .work { grid-template-columns: 1fr; grid-template-rows: none; }
+  .work .work-big { grid-row: auto; aspect-ratio: 4 / 5; }
+  .work figure:not(.work-big) { aspect-ratio: 1; }
+}
