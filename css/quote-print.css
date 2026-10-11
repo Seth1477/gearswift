@@ -20,7 +20,7 @@ body { background: #fff !important; color: #000 !important; font-family: Arial, 
 .pf-section h2 small { font-weight: normal; text-transform: none; letter-spacing: 0; font-size: 8.5pt; }
 
 .pf-row { display: flex; gap: 14pt; margin-bottom: 4pt; }
-.pf-line { flex: 1; display: flex; align-items: flex-end; gap: 5pt; white-space: nowrap; min-height: 16pt; }
+.pf-line { flex: 1; display: flex; align-items: flex-end; gap: 5pt; white-space: nowrap; min-height: 15pt; }
 .pf-line span { font-size: 9pt; }
 .pf-line::after { content: ""; flex: 1; border-bottom: .75pt solid #000; min-width: 40pt; height: 1pt; }
 .pf-line.req span::after { content: " *"; }
@@ -32,7 +32,7 @@ body { background: #fff !important; color: #000 !important; font-family: Arial, 
 
 .pf-notes { border-bottom: .75pt solid #000; height: 16pt; }
 
-.pf-sketch { border: 1.5pt solid #000; height: 2.55in; position: relative; margin-top: 4pt; }
+.pf-sketch { border: 1.5pt solid #000; height: 1.7in; position: relative; margin-top: 4pt; }
 .pf-sketch p { position: absolute; top: 5pt; left: 7pt; font-size: 9pt; font-weight: bold; }
 .pf-sketch .scale { position: absolute; bottom: 5pt; right: 7pt; font-size: 8pt; font-weight: normal; }
 

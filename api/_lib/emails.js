@@ -37,6 +37,8 @@ function technicalSections(q) {
       ['Face width', measure(g.face, u)],
       ['Keyway', measure(g.keyway, u)],
       ['Hub', show(g.hub)],
+      ['Heat treat & finish', show(g.finish)],
+      ['Accuracy grade', show(g.grade)],
     ]],
     ['Application', [
       ['Machine', show(a.machine)],
@@ -50,6 +52,9 @@ function technicalSections(q) {
       ['Has the old gear', l.haveOld],
       ['Can ship it to us', l.canShip],
       ['Has a drawing', l.haveDrawing],
+      ['Repeat order', l.repeat],
+      ['Previous PO / ref', l.prevRef],
+      ['Documents needed', l.docs.join(', ')],
       ['Needed by', fmtDate(l.neededBy)],
     ]],
   ];
@@ -135,7 +140,7 @@ function customer(q, { shopPhone }) {
     `Thanks for your gear quote request. Your reference number is ${q.ref}.`,
     '',
     q.urgency === 'emergency'
-      ? `You marked this as an emergency, so it's at the top of our list and we'll call you as soon as possible.${shopPhone ? ` If your equipment is down and you haven't called yet, reach us at ${shopPhone}.` : ''}`
+      ? `You marked this as an emergency, so we'll review it first and contact you as soon as possible with the fastest realistic option.${shopPhone ? ` If your equipment is down and you haven't called yet, reach us at ${shopPhone}.` : ''}`
       : "We'll review your photos and details and get back to you with pricing and a ship date.",
     '',
     'Have more photos, a drawing, or measurements? Just reply to this email and attach them.',

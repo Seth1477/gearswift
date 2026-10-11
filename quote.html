@@ -87,7 +87,7 @@
             <p>Call first so we can start right away, then send this form with your photos.</p>
             <a class="call-btn" data-phone-link href="#"><span data-phone></span></a>
           </div>
-          <p data-no-phone>Emergency requests go to the top of the list. Send this form with your photos and we'll call you right back.</p>
+          <p data-no-phone>Send this form with your photos and we'll review it first. We'll come back with the fastest realistic option, such as a pre-hard gear that skips heat treat and grinding, an expedited schedule, or both.</p>
         </div>
       </section>
 
@@ -131,6 +131,19 @@
             <label class="choice"><input type="radio" name="hub" value="Both sides"><span>Both sides</span></label>
             <label class="choice"><input type="radio" name="hub" value="unknown"><span>Not sure</span></label>
           </div>
+        </div>
+        <div class="field" style="margin-top:16px">
+          <span class="label">Heat treat &amp; finish</span>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="finish" value="Hardened &amp; ground"><span>Hardened &amp; ground</span></label>
+            <label class="choice"><input type="radio" name="finish" value="Hardened, not ground"><span>Hardened, not ground</span></label>
+            <label class="choice"><input type="radio" name="finish" value="Not hardened / pre-hard"><span>Not hardened / pre-hard</span></label>
+            <label class="choice"><input type="radio" name="finish" value="unknown"><span>Not sure</span></label>
+          </div>
+          <p class="hint">Not every gear needs grinding. If yours doesn't, it can usually be made weeks sooner.</p>
+        </div>
+        <div class="fields two" style="margin-top:16px">
+          <div class="field measure full"><label for="grade">Accuracy grade</label><input type="text" id="grade" name="grade" placeholder="e.g. AGMA Q10, ISO 7, or match the original"><label class="idk"><input type="checkbox" data-idk="grade"> I don't know</label></div>
         </div>
       </section>
 
@@ -191,7 +204,28 @@
               <label class="choice"><input type="radio" name="haveDrawing" value="No"><span>No</span></label>
             </div>
           </div>
-          <div class="field"><label for="neededBy">Needed by <span class="opt">(optional)</span></label><input type="date" id="neededBy" name="neededBy" style="max-width:260px"></div>
+          <div class="field">
+            <span class="label">Have you ordered this gear from us before?</span>
+            <div class="choices">
+              <label class="choice"><input type="radio" name="repeat" value="Yes"><span>Yes, it's a repeat</span></label>
+              <label class="choice"><input type="radio" name="repeat" value="No"><span>No, it's new</span></label>
+            </div>
+            <p class="hint">Repeat orders are much faster because the tooling and programs already exist.</p>
+          </div>
+          <div class="field"><label for="prevRef">Previous PO or reference <span class="opt">(if repeat)</span></label><input type="text" id="prevRef" name="prevRef" style="max-width:360px"></div>
+          <div class="field">
+            <span class="label">Documents needed with the order <span class="opt">(pick any)</span></span>
+            <div class="choices">
+              <label class="choice"><input type="checkbox" name="docs" value="Certificate of Conformance"><span>Certificate of Conformance</span></label>
+              <label class="choice"><input type="checkbox" name="docs" value="Material certs (MTRs)"><span>Material certs (MTRs)</span></label>
+              <label class="choice"><input type="checkbox" name="docs" value="Heat treat cert"><span>Heat treat cert</span></label>
+              <label class="choice"><input type="checkbox" name="docs" value="Inspection report"><span>Inspection report</span></label>
+              <label class="choice"><input type="checkbox" name="docs" value="First article report"><span>First article report</span></label>
+              <label class="choice"><input type="checkbox" name="docs" value="Not sure"><span>Not sure</span></label>
+            </div>
+          </div>
+          <div class="field"><label for="neededBy">Needed by <span class="opt">(optional)</span></label><input type="date" id="neededBy" name="neededBy" style="max-width:260px">
+            <p class="hint">If you need it sooner than our normal lead time, we'll tell you what's possible: a pre-hard gear, an expedited schedule, or both.</p></div>
         </div>
       </section>
 
@@ -232,7 +266,7 @@
         <h2>Request received</h2>
         <div class="ref" id="refNo"></div>
         <p>We sent a confirmation to <strong id="doneEmail"></strong>.</p>
-        <p id="doneEmergency" hidden><strong>Emergency requests are handled first.</strong> We'll call you as soon as possible.<span data-has-phone hidden> If you haven't already, call us at <a data-phone-link href="#"><span data-phone></span></a>.</span></p>
+        <p id="doneEmergency" hidden><strong>Urgent requests are reviewed first.</strong> We'll contact you as soon as possible with the fastest realistic option.<span data-has-phone hidden> If you haven't already, call us at <a data-phone-link href="#"><span data-phone></span></a>.</span></p>
         <p>More photos or a drawing? Reply to the confirmation email and attach them.</p>
         <p style="margin-top:24px"><a href="/" class="btn btn-dark">Back to home</a></p>
       </section>
@@ -255,7 +289,7 @@
     </div>
     <div class="box dark">
       <h3>Equipment down?</h3>
-      <p>Choose <strong style="color:#fff">Emergency</strong> and your request goes to the top of the list.<span data-has-phone hidden> Or call <a data-phone-link href="#"><span data-phone></span></a>.</span></p>
+      <p>Choose <strong style="color:#fff">Emergency</strong> and we'll review your request first and come back with the fastest realistic option.<span data-has-phone hidden> Or call <a data-phone-link href="#"><span data-phone></span></a>.</span></p>
     </div>
   </aside>
 </div>
@@ -292,6 +326,8 @@
     <div class="pf-row"><div class="pf-line"><span>Number of teeth</span></div><div class="pf-line"><span>Outside diameter</span></div><div class="pf-line"><span>Bore diameter</span></div></div>
     <div class="pf-row"><div class="pf-line"><span>Face width</span></div><div class="pf-line"><span>Keyway size</span></div></div>
     <div class="pf-boxes"><b>Hub</b><i>None</i><i>One side</i><i>Both sides</i><i>Not sure</i></div>
+    <div class="pf-boxes"><b>Heat treat &amp; finish</b><i>Hardened &amp; ground</i><i>Hardened, not ground</i><i>Not hardened / pre-hard</i><i>Not sure</i></div>
+    <div class="pf-row"><div class="pf-line"><span>Accuracy grade (if known)</span></div></div>
   </div>
 
   <div class="pf-section">
@@ -307,7 +343,9 @@
     <h2>4. Logistics</h2>
     <div class="pf-row"><div class="pf-line req" style="flex:0 0 150pt"><span>Quantity</span></div><div class="pf-line"><span>Needed by</span></div></div>
     <div class="pf-boxes"><b>Have the old gear?</b><i>Yes</i><i>No</i> &nbsp; <b>Have a drawing?</b><i>Yes</i><i>No</i></div>
-    <div class="pf-boxes"><b>Can you ship it to us?</b><i>Yes</i><i>No</i><i>Not sure</i></div>
+    <div class="pf-boxes"><b>Can you ship it to us?</b><i>Yes</i><i>No</i><i>Not sure</i> &nbsp; <b>Repeat order?</b><i>Yes</i><i>No</i></div>
+    <div class="pf-row"><div class="pf-line"><span>Previous PO / reference</span></div></div>
+    <div class="pf-boxes"><b>Documents needed</b><i>CoC</i><i>Material certs</i><i>Heat treat cert</i><i>Inspection report</i><i>First article</i></div>
   </div>
 
   <div class="pf-section">

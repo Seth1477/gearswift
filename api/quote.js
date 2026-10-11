@@ -52,6 +52,8 @@ function parse(body) {
       face: clean(g.face, 20),
       keyway: clean(g.keyway, 40),
       hub: clean(g.hub, 40),
+      finish: clean(g.finish, 40),
+      grade: clean(g.grade, 60),
     },
     application: {
       machine: clean(a.machine),
@@ -65,6 +67,9 @@ function parse(body) {
       haveOld: clean(l.haveOld, 20),
       canShip: clean(l.canShip, 20),
       haveDrawing: clean(l.haveDrawing, 20),
+      repeat: clean(l.repeat, 20),
+      prevRef: clean(l.prevRef, 80),
+      docs: (Array.isArray(l.docs) ? l.docs : []).map((x) => clean(x, 60)).filter(Boolean).slice(0, 8),
       neededBy: /^\d{4}-\d{2}-\d{2}$/.test(l.neededBy || '') ? l.neededBy : '',
     },
     files: (Array.isArray(body.files) ? body.files : [])

@@ -222,9 +222,9 @@ function collect() {
     website: form.website.value,
     contact: { name: val('name'), company: val('company'), phone: val('phone'), email: val('email'), site: val('site') },
     urgency: radio('urgency'),
-    gear: { units: radio('units') || 'in', type: radio('type'), teeth: val('teeth'), od: val('od'), bore: val('bore'), face: val('face'), keyway: val('keyway'), hub: radio('hub') },
+    gear: { units: radio('units') || 'in', type: radio('type'), teeth: val('teeth'), od: val('od'), bore: val('bore'), face: val('face'), keyway: val('keyway'), hub: radio('hub'), finish: radio('finish'), grade: val('grade') },
     application: { machine: val('machine'), makeModel: val('makeModel'), partNumber: val('partNumber'), failure: $$('input[name=failure]:checked').map((c) => c.value), notes: val('notes') },
-    logistics: { quantity: val('quantity'), haveOld: radio('haveOld'), canShip: radio('canShip'), haveDrawing: radio('haveDrawing'), neededBy: val('neededBy') },
+    logistics: { quantity: val('quantity'), haveOld: radio('haveOld'), canShip: radio('canShip'), haveDrawing: radio('haveDrawing'), repeat: radio('repeat'), prevRef: val('prevRef'), docs: $$('input[name=docs]:checked').map((c) => c.value), neededBy: val('neededBy') },
     files: [],
   };
 }
@@ -244,9 +244,9 @@ function renderReview() {
   };
   $('#review').innerHTML =
     section('Contact', 1, [['Name', q.contact.name], ['Company', q.contact.company], ['Phone', q.contact.phone], ['Email', q.contact.email], ['City / site', q.contact.site], ['Urgency', URGENCY_LABEL[q.urgency]]]) +
-    section('The gear', 2, [['Type', shown(q.gear.type)], ['Teeth', shown(q.gear.teeth)], ['Outside diameter', m(q.gear.od)], ['Bore', m(q.gear.bore)], ['Face width', m(q.gear.face)], ['Keyway', m(q.gear.keyway)], ['Hub', shown(q.gear.hub)]]) +
+    section('The gear', 2, [['Type', shown(q.gear.type)], ['Teeth', shown(q.gear.teeth)], ['Outside diameter', m(q.gear.od)], ['Bore', m(q.gear.bore)], ['Face width', m(q.gear.face)], ['Keyway', m(q.gear.keyway)], ['Hub', shown(q.gear.hub)], ['Heat treat & finish', shown(q.gear.finish)], ['Accuracy grade', shown(q.gear.grade)]]) +
     section('Application', 3, [['Machine', shown(q.application.machine)], ['Make / model', shown(q.application.makeModel)], ['Part number', shown(q.application.partNumber)], ['What failed', q.application.failure.join(', ')], ['Notes', q.application.notes]]) +
-    section('Logistics', 4, [['Quantity', q.logistics.quantity], ['Have old gear', q.logistics.haveOld], ['Can ship it', q.logistics.canShip], ['Have drawing', q.logistics.haveDrawing], ['Needed by', q.logistics.neededBy]]) +
+    section('Logistics', 4, [['Quantity', q.logistics.quantity], ['Have old gear', q.logistics.haveOld], ['Can ship it', q.logistics.canShip], ['Have drawing', q.logistics.haveDrawing], ['Repeat order', q.logistics.repeat], ['Previous PO / ref', q.logistics.prevRef], ['Documents needed', q.logistics.docs.join(', ')], ['Needed by', q.logistics.neededBy]]) +
     section('Photos &amp; files', 5, [['Files', files.map((f) => `${f.file.name} (${fmtSize(f.file.size)})`).join(', ')]]);
 }
 
