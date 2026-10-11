@@ -38,7 +38,10 @@ h1, h2, h3 { font-family: var(--head); font-weight: 700; line-height: 1.02; text
 .strip .wrap { display: flex; justify-content: space-between; align-items: center; height: 36px; gap: 16px; }
 .strip a { color: #fff; text-decoration: none; }
 .strip .maple { color: var(--red); margin-right: 6px; }
-@media (max-width: 700px) { .strip .contact { display: none; } }
+.strip-contact { display: flex; gap: 18px; }
+.strip .phone { font-weight: 600; }
+@media (max-width: 700px) { .strip .contact { display: none; } .strip .wrap > div:first-child { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; } }
+.cta-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
 .site-header { background: var(--white); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 40; }
 .site-header .wrap { display: flex; align-items: center; justify-content: space-between; height: 74px; }

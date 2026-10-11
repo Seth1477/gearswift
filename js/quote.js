@@ -3,8 +3,8 @@ import { upload } from './blob-upload.js';
 // ---- Settings ----
 // Shop phone number, shown when a customer picks Emergency. Leave empty to hide it.
 // Example: const SHOP_PHONE = '1-905-555-0123';
-const SHOP_PHONE = '';
-const SHOP_EMAIL = 'quotes@hotshotgears.ca';
+const SHOP_PHONE = '825-777-2483';
+const SHOP_EMAIL = 'hotshotgears@gmail.com';
 
 const DRAFT_KEY = 'hotshot-quote-draft-v2';
 const MAX_FILES = 10;
