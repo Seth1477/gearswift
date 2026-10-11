@@ -178,3 +178,26 @@ h1, h2, h3 { font-family: var(--head); font-weight: 700; line-height: 1.02; text
 .docs li { padding: 14px 0; border-bottom: 1px solid var(--line); color: var(--ink-2); font-size: .97rem; }
 .docs li:last-child { border-bottom: 0; }
 .docs strong { display: block; color: var(--ink); font-size: 1.05rem; }
+
+/* OEM vs us */
+.vs { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-top: 44px; background: var(--white); border: 1px solid var(--line); }
+.vs-col { padding: 30px 28px; }
+.vs-col h3 { font-size: 1.6rem; margin-bottom: 12px; color: var(--muted); }
+.vs-col ul { list-style: none; }
+.vs-col li { padding: 11px 0 11px 30px; border-top: 1px solid var(--line); position: relative; color: var(--ink-2); }
+.vs-col li::before { content: "\2715"; position: absolute; left: 2px; color: var(--muted); }
+.vs-col.ours { background: var(--steel); color: #fff; }
+.vs-col.ours h3 { color: #fff; }
+.vs-col.ours li { color: #d6dade; border-color: rgba(255,255,255,.14); }
+.vs-col.ours li::before { content: "\2713"; color: var(--red); font-weight: 700; }
+@media (max-width: 760px) { .vs { grid-template-columns: 1fr; } }
+
+/* How we keep it fast */
+.levers { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 4px solid var(--ink); }
+.levers li { padding: 20px 18px 0 0; font-size: .95rem; color: var(--ink-2); }
+.levers li + li { padding-left: 18px; border-left: 1px solid var(--line); }
+.levers strong { display: block; font-family: var(--head); font-size: 1.3rem; text-transform: uppercase; color: var(--ink); margin-bottom: 6px; }
+@media (max-width: 900px) {
+  .levers { grid-template-columns: 1fr; border-top: 0; border-left: 4px solid var(--ink); }
+  .levers li, .levers li + li { padding: 0 0 18px 18px; border-left: 0; }
+}

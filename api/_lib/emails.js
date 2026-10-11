@@ -140,13 +140,13 @@ function customer(q, { shopPhone }) {
     `Thanks for your gear quote request. Your reference number is ${q.ref}.`,
     '',
     q.urgency === 'emergency'
-      ? `You marked this as an emergency, so we'll review it first and contact you as soon as possible with the fastest realistic option.${shopPhone ? ` If your equipment is down and you haven't called yet, reach us at ${shopPhone}.` : ''}`
+      ? `You marked this as an emergency, so we'll expedite it and contact you as soon as possible.${shopPhone ? ` If your equipment is down and you haven't called yet, reach us at ${shopPhone}.` : ''}`
       : "We'll review your photos and details and get back to you with pricing and a ship date.",
     '',
     'Have more photos, a drawing, or measurements? Just reply to this email and attach them.',
     '',
     'Hotshot Gears',
-    'Custom gears, made in Canada',
+    'Fast turnaround custom gears',
   ];
   return {
     subject: `We received your gear quote request (${q.ref})`,
