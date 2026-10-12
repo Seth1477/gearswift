@@ -9,25 +9,16 @@
 //
 // Phone calls from the ad itself (the call button in the ad) are tracked by Google with no code.
 // CALL_LABEL is only for people who tap the phone number on this website.
-const GOOGLE_TAG_ID = '';
+const GOOGLE_TAG_ID = 'AW-17787449413';
 const QUOTE_LABEL = '';
 const CALL_LABEL = '';
 
 (function () {
   if (!GOOGLE_TAG_ID) return;
 
-  window.dataLayer = window.dataLayer || [];
-  window.gtag = function () { window.dataLayer.push(arguments); };
-  window.gtag('js', new Date());
-  window.gtag('config', GOOGLE_TAG_ID);
-
-  var s = document.createElement('script');
-  s.async = true;
-  s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GOOGLE_TAG_ID);
-  document.head.appendChild(s);
-
+  // The Google tag itself is installed in the <head> of each page. This file only sends events.
   function fire(label, extra) {
-    if (!label || !window.gtag) return;
+    if (!label || typeof window.gtag !== 'function') return;
     window.gtag('event', 'conversion', Object.assign({ send_to: GOOGLE_TAG_ID + '/' + label }, extra || {}));
   }
 
