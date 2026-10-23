@@ -101,7 +101,7 @@ function owner(q, { attached }) {
   const c = q.contact;
   const quick = q.mode === 'quick';
   const tech = quick ? [] : technicalSections(q);
-  const contactRows = [['Name', c.name], ['Company', c.company], ['Phone', c.phone], ['Email', c.email], ['City / site', c.site]];
+  const contactRows = [['Name', c.name], ['Company', c.company], ['Phone', c.phone], ['Email', c.email], ['City / site', c.site], ['Came from', q.source]];
   return {
     subject: `${u.tag}${quick ? ' [QUICK CONTACT]' : ''} ${q.ref}: ${c.company ? `${c.company} (${c.name})` : c.name}`,
     text: [

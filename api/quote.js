@@ -51,6 +51,7 @@ function parse(body) {
     },
     urgency: oneOf(body.urgency, Object.keys(emails.URGENCY)),
     message: clean(body.message, 4000),
+    source: clean(body.source, 400), // landing page + ad click info, e.g. "lp/replacement-gears | gclid=..."
     gear: {
       units: g.units === 'mm' ? 'mm' : 'in',
       type: clean(g.type, 40),
