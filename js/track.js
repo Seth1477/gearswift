@@ -10,7 +10,7 @@
 // Phone calls from the ad itself (the call button in the ad) are tracked by Google with no code.
 // CALL_LABEL is only for people who tap the phone number on this website.
 const GOOGLE_TAG_ID = 'AW-17787449413';
-const QUOTE_LABEL = '';
+const QUOTE_LABEL = '7eNZCNnVvpkdEMXg26FC';
 const CALL_LABEL = '';
 
 (function () {
