@@ -4,7 +4,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const TAG = 'AW-17787449413';
+const TAG = 'AW-18536573438';
 const PHONE = '825-777-2483';
 const TEL = '+18257772483';
 
