@@ -5,6 +5,7 @@ const fs = require('fs');
 const path = require('path');
 
 const TAG = 'AW-18536573438';
+const GA4 = 'G-8VZ6EYQ9E5';
 const PHONE = '825-777-2483';
 const TEL = '+18257772483';
 
@@ -89,6 +90,7 @@ function page(p) {
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', '${TAG}');
+  gtag('config', '${GA4}');
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>${esc(p.title)}</title>

@@ -25,11 +25,17 @@ const CALL_LABEL = '';
   // Called by the quote form when a request has gone through.
   window.hotshotTrackQuote = function (ref) {
     fire(QUOTE_LABEL, { transaction_id: ref || '' });
+    // Google Analytics 4 "generate_lead" event (mark it as a key event in GA4).
+    if (typeof window.gtag === 'function') window.gtag('event', 'generate_lead', { transaction_id: ref || '' });
   };
 
   // Taps on any phone number link on the site.
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a[href^="tel:"]');
-    if (a) fire(CALL_LABEL);
+    if (a) {
+      fire(CALL_LABEL);
+      // Google Analytics 4 event for taps on the phone number.
+      if (typeof window.gtag === 'function') window.gtag('event', 'phone_click');
+    }
   });
 })();
