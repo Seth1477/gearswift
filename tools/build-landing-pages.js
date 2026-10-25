@@ -107,7 +107,7 @@ function page(p) {
 
 <header class="lp-head">
   <div class="wrap">
-    <a href="/lp/${p.slug}.html" class="logo" aria-label="Hotshot Gears"><img src="/img/logo/hs-mark.svg" alt="" width="40" height="40"><span class="logo-word">Hotshot<b>Gears</b></span></a>
+    <a href="/${p.slug}" class="logo" aria-label="Hotshot Gears"><img src="/img/logo/hs-mark.svg" alt="" width="40" height="40"><span class="logo-word">Hotshot<b>Gears</b></span></a>
     <div class="actions">
       <a class="lp-phone" href="tel:${TEL}"><small>Call now</small>${PHONE}</a>
       <a href="#lpCard" class="btn btn-red" data-scroll-form>Get a Quote</a>
