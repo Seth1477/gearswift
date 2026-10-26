@@ -365,6 +365,7 @@ async function uploadFiles() {
 
 async function sendPayload(payload) {
   setProgress(95, 'Sending your request...');
+  if (!payload.source && window.hotshotSource) payload.source = window.hotshotSource('quote');
   for (let attempt = 0; attempt < 3; attempt++) {
     try {
       const controller = new AbortController();

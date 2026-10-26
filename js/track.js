@@ -22,6 +22,18 @@ const CALL_LABEL = '';
     window.gtag('event', 'conversion', Object.assign({ send_to: GOOGLE_TAG_ID + '/' + label }, extra || {}));
   }
 
+  // Remember where the visitor came from (Google Ads click ID, campaign tags) for this visit,
+  // so every form can pass it along in the lead email ("Came from").
+  var KEYS = ['gclid', 'gbraid', 'wbraid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+  var attr = {};
+  try { attr = JSON.parse(sessionStorage.getItem('hs-attr') || '{}'); } catch (e) { /* private mode */ }
+  var params = new URLSearchParams(location.search);
+  KEYS.forEach(function (k) { if (params.get(k)) attr[k] = params.get(k); });
+  try { sessionStorage.setItem('hs-attr', JSON.stringify(attr)); } catch (e) { /* ignore */ }
+  window.hotshotSource = function (page) {
+    return ['page/' + page].concat(Object.keys(attr).map(function (k) { return k + '=' + attr[k]; })).join(' | ');
+  };
+
   // Called by the quote form when a request has gone through.
   window.hotshotTrackQuote = function (ref) {
     fire(QUOTE_LABEL, { transaction_id: ref || '' });
