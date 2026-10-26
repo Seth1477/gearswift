@@ -95,6 +95,17 @@ function page(p) {
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>${esc(p.title)}</title>
 <meta name="description" content="${esc(p.desc)}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hotshot Gears">
+<meta property="og:title" content="${esc(p.title)}">
+<meta property="og:description" content="${esc(p.desc)}">
+<meta property="og:url" content="https://www.hotshotgears.ca/${p.slug}">
+<meta property="og:image" content="https://www.hotshotgears.ca/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Hotshot Gears logo, custom gear manufacturing">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.hotshotgears.ca/img/og-image.png">
 <meta name="robots" content="noindex, follow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
