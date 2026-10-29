@@ -112,12 +112,12 @@ function page(p) {
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
 <link rel="stylesheet" href="/css/lp.css">
-<link rel="icon" href="/favicon.svg?v=3" type="image/svg+xml">
-<link rel="icon" href="/favicon.ico?v=3" sizes="16x16 32x32 48x48">
-<link rel="icon" href="/favicon-48.png?v=3" sizes="48x48" type="image/png">
-<link rel="icon" href="/favicon-96.png?v=3" sizes="96x96" type="image/png">
-<link rel="icon" href="/favicon-192.png?v=3" sizes="192x192" type="image/png">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3">
+<link rel="icon" href="/favicon.svg?v=4" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico?v=4" sizes="16x16 32x32 48x48">
+<link rel="icon" href="/favicon-48.png?v=4" sizes="48x48" type="image/png">
+<link rel="icon" href="/favicon-96.png?v=4" sizes="96x96" type="image/png">
+<link rel="icon" href="/favicon-192.png?v=4" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
 </head>
 <body class="lp">
 
