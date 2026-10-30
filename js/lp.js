@@ -131,7 +131,15 @@ function init() {
     submit();
   });
   const retry = $('#lpRetry');
-  if (retry) retry.addEventListener('click', async () => { if (!last) return; setStage('sending'); const out = await send(last); if (out) { $('#lpRef').textContent = out.ref; setStage('ok'); } else fallback(last); });
+  if (retry) retry.addEventListener('click', async () => {
+    if (!last) return;
+    setStage('sending');
+    const out = await send(last);
+    if (!out) return fallback(last);
+    try { if (window.hotshotTrackQuote) window.hotshotTrackQuote(out.ref); } catch (e) { /* tracking must never break the form */ }
+    $('#lpRef').textContent = out.ref;
+    setStage('ok');
+  });
 
   // "Get a quote" buttons scroll to the form and focus the first field.
   document.querySelectorAll('[data-scroll-form]').forEach((a) => a.addEventListener('click', (e) => {
