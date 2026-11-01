@@ -130,3 +130,13 @@ body.lp { padding-bottom: 70px; }
 .lp-bar .call { background: var(--ink); }
 .lp-bar .quote { background: var(--red); }
 @media (min-width: 820px) { .lp-bar { display: none; } }
+
+/* Search pages: article copy and cross-links */
+.lp-prose .wrap { max-width: 820px; }
+.lp-prose h2.t { font-size: clamp(1.7rem, 4vw, 2.3rem); margin-top: 36px; }
+.lp-prose h2.t:first-child { margin-top: 0; }
+.lp-prose p { color: var(--ink-2); font-size: 1.08rem; line-height: 1.7; margin-top: 12px; }
+.lp-links { background: #16191c; padding: 18px 0; }
+.lp-links .wrap { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+.lp-links a { color: #c9ced3; text-decoration: none; font-size: .95rem; }
+.lp-links a:hover { color: #fff; }

@@ -4,6 +4,10 @@
   "rewrites": [
     { "source": "/replacement-gears", "destination": "/lp/replacement-gears" },
     { "source": "/custom-gears", "destination": "/lp/custom-gears" },
-    { "source": "/urgent-gear-replacement", "destination": "/lp/urgent-gear-replacement" }
+    { "source": "/urgent-gear-replacement", "destination": "/lp/urgent-gear-replacement" },
+    { "source": "/herringbone-gears", "destination": "/lp/herringbone-gears" },
+    { "source": "/spur-gears", "destination": "/lp/spur-gears" },
+    { "source": "/gear-reverse-engineering", "destination": "/lp/gear-reverse-engineering" },
+    { "source": "/gear-manufacturer-alberta", "destination": "/lp/gear-manufacturer-alberta" }
   ]
 }

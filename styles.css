@@ -147,7 +147,7 @@ h1, h2, h3 { font-family: var(--head); font-weight: 700; line-height: 1.02; text
 
 /* Footer */
 .site-footer { background: #0e1012; color: #8b9197; font-size: .95rem; padding: 64px 0 32px; }
-.site-footer .cols { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid #25292d; }
+.site-footer .cols { display: grid; grid-template-columns: 1.4fr 1fr 1.2fr 1fr; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid #25292d; }
 .site-footer h4 { font-family: var(--head); font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: #fff; margin-bottom: 14px; font-size: 1rem; }
 .site-footer ul { list-style: none; }
 .site-footer li { padding: 4px 0; }
@@ -225,3 +225,7 @@ h1, h2, h3 { font-family: var(--head); font-weight: 700; line-height: 1.02; text
   .work .work-big { grid-row: auto; aspect-ratio: 4 / 5; }
   .work figure:not(.work-big) { aspect-ratio: 1; }
 }
+
+/* In-copy links to the gear pages */
+.section-intro a, .caps li a { color: inherit; text-decoration: underline; text-decoration-color: var(--red); text-underline-offset: 3px; }
+@media (max-width: 1000px) and (min-width: 761px) { .site-footer .cols { grid-template-columns: 1fr 1fr; } }

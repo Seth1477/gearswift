@@ -72,10 +72,172 @@ const PAGES = [
     finalH: 'Every hour down costs money.',
     finalP: 'Call now or send a photo of the broken gear.',
   },
+
+  // Search pages: same layout, but indexed by Google, with their own copy, FAQ and structured data.
+  // Ads keep pointing at the three pages above.
+  {
+    slug: 'herringbone-gears',
+    index: true,
+    crumb: 'Herringbone Gears',
+    service: 'Herringbone (double-helical) gear manufacturing',
+    title: 'Herringbone & Double-Helical Gears, Custom Made | Hotshot Gears',
+    desc: 'Custom herringbone (double-helical) gears and pinion shafts, made to your drawing or reverse engineered from a worn gear. Built in Alberta, shipped across Canada.',
+    kicker: 'Herringbone gears',
+    h1: 'Herringbone gears, <span>made to order.</span>',
+    sub: 'Double-helical gears and pinion shafts for heavy industrial drives. Made to your drawing, or reverse engineered from the gear that wore out.',
+    ticks: ['Gears, pinions and matched sets', 'Reverse engineered from your old gear, a drawing or photos', 'Inspected and shipped with documentation'],
+    bg: '/img/work-herringbone.jpg',
+    formTitle: 'Get a herringbone gear quote',
+    formSub: 'Just your name and a phone or email. Add photos if you have them.',
+    placeholder: 'e.g. Double-helical gear, about 30 inch OD, 96 teeth, mating pinion worn',
+    cta: 'Get My Quote',
+    urgency: '',
+    gallery: [['/img/work-herringbone.jpg', 'Herringbone gear and pinion shafts'], ['/img/replacement.jpg', 'Double-helical gear set'], ['/img/emergency.jpg', 'Double-helical gearbox']],
+    about: [
+      ['What is a herringbone gear?', [
+        'A herringbone gear, also called a double-helical gear, has two sets of helical teeth angled in opposite directions, meeting in a V down the middle of the face. Each half pushes sideways against the other, so the axial thrust cancels out. That lets the gear carry high loads smoothly and quietly without heavy thrust bearings.',
+        'That is why herringbone gears show up in the big, hard-working drives: mills, kilns, crushers, compressors, pumps, conveyors and large industrial gearboxes.',
+      ]],
+      ['Replacing a worn herringbone gear or pinion', [
+        'Original drawings for older double-helical gearboxes are often long gone, and the OEM may quote months for a replacement, if they still make it at all. We measure your worn gear or pinion, work out the tooth data, including helix angle, hand, module or diametral pitch and centre distance, and build a replacement that meshes with the gear you keep.',
+        'Send photos of the old part next to a ruler, with the outside diameter, face width, bore and tooth count, and we will come back with a price and a firm ship date.',
+      ]],
+    ],
+    faq: [
+      ['Can you replace just the pinion in a herringbone set?', 'Yes. We measure the mating gear so the new pinion matches its tooth geometry and runs at the right centre distance. If the gear is worn too, we will tell you before you order.'],
+      ['Do you make double-helical gears with a centre groove?', 'Yes. Many double-helical gears have a gap between the two helices, and we build to whatever your gear or drawing calls for.'],
+    ],
+    finalH: 'Need a herringbone gear?',
+    finalP: 'Send a drawing or photos of the old gear and we will quote it fast.',
+  },
+  {
+    slug: 'spur-gears',
+    index: true,
+    crumb: 'Spur Gears',
+    service: 'Custom spur gear manufacturing',
+    title: 'Custom Spur Gears, Made to Order in Canada | Hotshot Gears',
+    desc: 'Custom spur gears made to your drawing or sample: one-off replacements, prototypes and production runs. Hardened and ground or pre-hard. Fast turnaround.',
+    kicker: 'Spur gears',
+    h1: 'Custom spur gears, <span>built fast.</span>',
+    sub: 'Single replacements, prototypes and production runs. Made to your drawing, or measured from the gear you have.',
+    ticks: ['Any quantity, from one gear to a production run', 'Hardened and ground, or pre-hard when speed matters', 'Splined bores, keyways and bolt patterns to suit your shaft'],
+    bg: '/img/work-spur.jpg',
+    formTitle: 'Get a spur gear quote',
+    formSub: 'Tell us what you need. A drawing or photos help, but are optional.',
+    placeholder: 'e.g. 22 tooth spur gear, 4.5 inch OD, 4140 steel, qty 10',
+    cta: 'Get My Quote',
+    urgency: '',
+    gallery: [['/img/work-spur.jpg', 'Precision spur gear'], ['/img/production.jpg', 'Matched spur gear pair'], ['/img/work-spline.jpg', 'Spur gear with splined bore']],
+    about: [
+      ['Spur gears made to your spec', [
+        'Spur gears have straight teeth cut parallel to the shaft. They are simple, efficient and the most common gear in machinery, from pumps and conveyors to transmissions, winches and gear reducers.',
+        'We cut spur gears in metric module or diametral pitch, with whatever bore your shaft needs: plain, keyed, splined, or with a bolt pattern for a hub. Gear steels include 4140, 4340, 8620 and 9310, carburized and ground or through-hardened, and other materials on request.',
+      ]],
+      ['From one replacement gear to a production run', [
+        'Need one gear to get a machine running? Send the old one, or photos with the outside diameter, tooth count, face width and bore. Building new equipment? Send the drawing and we will review it before anything gets cut.',
+        'Once your gear is on file, reorders are faster because the tooling and CNC programs are already set up. Every order is inspected and can ship with a certificate of conformance, material certs and an inspection report.',
+      ]],
+    ],
+    faq: [
+      ['Do you cut metric and inch spur gears?', 'Yes. We make gears in metric module and in diametral pitch, and can tell which one your old gear is when we measure it.'],
+      ['Can you put a spline or keyway in the bore?', 'Yes. Internal splines, keyways, set screws and bolt patterns are all common, and we match them to your shaft or hub.'],
+    ],
+    finalH: 'Need spur gears made?',
+    finalP: 'Send a drawing or a few details and we will quote it fast.',
+  },
+  {
+    slug: 'gear-reverse-engineering',
+    index: true,
+    crumb: 'Gear Reverse Engineering',
+    service: 'Gear reverse engineering and replacement gear manufacturing',
+    title: 'Gear Reverse Engineering & Obsolete Gear Replacement | Hotshot Gears',
+    desc: 'No drawing? We reverse engineer worn, broken or obsolete gears from the part or photos, then build a replacement that fits. Fast turnaround, built in Canada.',
+    kicker: 'Reverse engineering',
+    h1: 'No drawing? <span>No problem.</span>',
+    sub: 'We measure your worn, broken or obsolete gear, work out the tooth data, and build a replacement that fits the first time.',
+    ticks: ['Works from the old part, photos or partial drawings', 'For discontinued and obsolete OEM gears', 'Gear data kept on file for fast reorders'],
+    bg: '/img/replacement.jpg',
+    formTitle: 'Get a reverse engineering quote',
+    formSub: 'Just your name and a phone or email. Add photos if you have them.',
+    placeholder: 'e.g. Obsolete gear from a 1980s gearbox, no drawing, about 10 inch OD',
+    cta: 'Get My Quote',
+    urgency: '',
+    gallery: [['/img/replacement.jpg', 'Replacement double-helical gear set'], ['/img/work-spline.jpg', 'Gear with internal spline'], ['/img/work-herringbone.jpg', 'Herringbone gear and pinions']],
+    about: [
+      ['How gear reverse engineering works', [
+        'When there is no drawing, the gear itself is the drawing. We measure the outside and root diameters, tooth count, face width, tooth thickness and, on helical and herringbone gears, the helix angle and hand. From that we work out whether the gear is metric or inch, its pressure angle and profile shift, and the backlash it needs to run with its mate.',
+        'We look at how the old gear wore, and at the mating gear when we can, so the replacement meshes properly rather than just copying the worn shape.',
+      ]],
+      ['Obsolete, discontinued and back-ordered gears', [
+        'Older equipment often outlives its manufacturer. If the OEM part is discontinued, on a long back-order, or the company is gone, reverse engineering is usually the fastest way back up and running. Once the gear data is on file, the next one is quicker still.',
+        'Start by sending clear photos of the gear next to a ruler, with the measurements you can take. If we need the part itself, we will tell you.',
+      ]],
+    ],
+    faq: [
+      ['What measurements should I send?', 'Outside diameter, tooth count, face width and bore size are the most useful, plus photos of the gear face-on and from the side next to a ruler. For helical gears, a photo showing the tooth angle helps.'],
+      ['Do I need to ship you the old gear?', 'Not always. Many gears can be quoted from photos and measurements. For tight-tolerance or heavily worn gears we may ask for the part, or the mating gear, to get it right.'],
+    ],
+    finalH: 'Got a gear with no drawing?',
+    finalP: 'Send a photo and the measurements you have, and we will quote it fast.',
+  },
+  {
+    slug: 'gear-manufacturer-alberta',
+    index: true,
+    crumb: 'Gear Manufacturer in Alberta',
+    service: 'Custom gear manufacturing in Alberta',
+    title: 'Gear Manufacturer in Alberta | Custom Gears Near Edmonton | Hotshot Gears',
+    desc: 'Custom and replacement gears built in Leduc, Alberta, just south of Edmonton. Spur, helical and herringbone gears, splines and pinions. Fast turnaround across Alberta.',
+    kicker: 'Alberta gear manufacturer',
+    h1: 'Custom gears, <span>built in Alberta.</span>',
+    sub: 'Replacement, prototype and production gears from our shop in Leduc, just south of Edmonton. Fast turnaround, shipped anywhere in Canada.',
+    ticks: ['Built in Leduc, near Edmonton and Nisku', 'Spur, helical and herringbone gears, splines and pinions', 'Fast turnaround, with a firm ship date on every quote'],
+    bg: '/img/hero.jpg',
+    formTitle: 'Get your gear quote',
+    formSub: 'Just your name and a phone or email. Add photos if you have them.',
+    placeholder: 'e.g. Broken pinion on a conveyor gearbox, about 6 inch OD, 24 teeth',
+    cta: 'Get My Quote',
+    urgency: '',
+    gallery: [['/img/work-herringbone.jpg', 'Herringbone gear and pinion shafts'], ['/img/work-spur.jpg', 'Precision spur gear'], ['/img/production.jpg', 'Matched gear pair']],
+    about: [
+      ['A gear shop close to home', [
+        'Hotshot Gears builds custom gears in Leduc, Alberta, minutes from Edmonton and the Nisku industrial park. When equipment is down in Alberta, waiting on an overseas OEM or a shop across the continent costs days you do not have. A local gear manufacturer means shorter shipping, easier communication and a part that gets to you sooner.',
+        'We make spur, helical and double-helical (herringbone) gears, internal gears, worms, splined shafts and hubs, sprockets and pinion shafts, from single replacement gears to production runs.',
+      ]],
+      ['Built for the equipment Alberta runs on', [
+        'Oilfield equipment, pumps, mining and aggregate machinery, conveyors, agricultural and forestry equipment and plant gearboxes all depend on gears that are hard to source when they fail. Send a drawing, the worn part, or photos with measurements, and we will work out the gear data and build it fast.',
+        'Customers in Edmonton, Leduc, Nisku, Calgary, Red Deer, Fort McMurray and the rest of Alberta are welcome, and we ship across Canada and North America.',
+      ]],
+    ],
+    faq: [
+      ['Where are you located?', 'Our shop is in Leduc, Alberta, just south of Edmonton and next to the Nisku industrial area. We ship across Alberta, Canada and North America.'],
+      ['Do you only work with Alberta customers?', 'No. Alberta customers get the advantage of shorter shipping, but we build and ship gears for customers anywhere in Canada and North America.'],
+    ],
+    finalH: 'Need a gear made in Alberta?',
+    finalP: 'Send a drawing or photos of the old gear and we will quote it fast.',
+  },
 ];
+
+const SEO = PAGES.filter((p) => p.index);
+const SITE = 'https://www.hotshotgears.ca';
 
 const ticksHtml = (a) => a.map((t) => `<li>${t}</li>`).join('');
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+const faqOf = (p) => (p.faq || []).concat(FAQ);
+
+// Breadcrumb, Service and FAQ structured data for the search pages
+function jsonld(p) {
+  const url = `${SITE}/${p.slug}`;
+  const graph = [
+    { '@type': 'BreadcrumbList', itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: SITE + '/' },
+      { '@type': 'ListItem', position: 2, name: p.crumb, item: url },
+    ] },
+    { '@type': 'Service', name: p.service, serviceType: p.service, url, description: p.desc,
+      provider: { '@id': SITE + '/#organization' }, areaServed: [{ '@type': 'State', name: 'Alberta' }, { '@type': 'Country', name: 'Canada' }] },
+    { '@type': 'FAQPage', mainEntity: faqOf(p).map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
+  ];
+  return `<script type="application/ld+json">\n${JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }, null, 1)}\n</script>`;
+}
 
 function page(p) {
   const chip = (v, label) => `<label><input type="radio" name="urgency" value="${v}"${p.urgency === v ? ' checked' : ''}><span>${label}</span></label>`;
@@ -106,7 +268,7 @@ function page(p) {
 <meta property="og:image:alt" content="Hotshot Gears logo, custom gear manufacturing">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://www.hotshotgears.ca/img/og-image.png">
-<meta name="robots" content="noindex, follow">
+${p.index ? `<link rel="canonical" href="${SITE}/${p.slug}">\n${jsonld(p)}` : '<meta name="robots" content="noindex, follow">'}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
@@ -123,7 +285,7 @@ function page(p) {
 
 <header class="lp-head">
   <div class="wrap">
-    <a href="/${p.slug}" class="logo" aria-label="Hotshot Gears"><img src="/img/logo/hs-mark.svg" alt="" width="40" height="40"><span class="logo-word">Hotshot<b>Gears</b></span></a>
+    <a href="/${p.index ? '' : p.slug}" class="logo" aria-label="Hotshot Gears"><img src="/img/logo/hs-mark.svg" alt="" width="40" height="40"><span class="logo-word">Hotshot<b>Gears</b></span></a>
     <div class="actions">
       <a class="lp-phone" href="tel:${TEL}"><small>Call now</small>${PHONE}</a>
       <a href="#lpCard" class="btn btn-red" data-scroll-form>Get a Quote</a>
@@ -194,7 +356,14 @@ function page(p) {
     <div><strong>Canadian built</strong>Shipped wherever you are</div>
   </div>
 </section>
-
+${p.about ? `
+<section class="lp-sec lp-prose">
+  <div class="wrap">${p.about.map(([h, ps]) => `
+    <h2 class="t">${esc(h)}</h2>${ps.map((t) => `
+    <p>${esc(t)}</p>`).join('')}`).join('')}
+  </div>
+</section>
+` : ''}
 <section class="lp-sec">
   <div class="wrap">
     <h2 class="t">How it works</h2>
@@ -228,7 +397,7 @@ function page(p) {
 <section class="lp-sec paper">
   <div class="wrap">
     <h2 class="t">Questions</h2>
-    <div class="lp-faq">${FAQ.map(([q, a], i) => `<details${i === 0 ? ' open' : ''}><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</div>
+    <div class="lp-faq">${faqOf(p).map(([q, a], i) => `<details${i === 0 ? ' open' : ''}><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</div>
   </div>
 </section>
 
@@ -243,7 +412,7 @@ function page(p) {
   </div>
 </section>
 
-<footer class="lp-foot"><div class="wrap"><span>&copy; <span id="yr"></span> Hotshot Gears. Custom gears, built fast.</span><span><a href="mailto:hotshotgears@gmail.com">hotshotgears@gmail.com</a></span></div></footer>
+${p.index ? `<nav class="lp-links" aria-label="More from Hotshot Gears"><div class="wrap"><a href="/">Home</a>${SEO.filter((s) => s !== p).map((s) => `<a href="/${s.slug}">${esc(s.crumb)}</a>`).join('')}<a href="/quote">Request a Quote</a></div></nav>\n` : ''}<footer class="lp-foot"><div class="wrap"><span>&copy; <span id="yr"></span> Hotshot Gears. Custom gears, built fast.</span><span><a href="mailto:hotshotgears@gmail.com">hotshotgears@gmail.com</a></span></div></footer>
 
 <nav class="lp-bar" aria-label="Call or quote"><a class="call" href="tel:${TEL}">&#9742; Call</a><a class="quote" href="#lpCard" data-scroll-form>Get a Quote</a></nav>
 
