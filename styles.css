@@ -256,3 +256,4 @@ h1, h2, h3 { font-family: var(--head); font-weight: 700; line-height: 1.02; text
 .menu-panel .btn { display: block; margin: 12px 20px 0; text-align: center; }
 @media (max-width: 600px) { .menu-word { display: none; } .menu summary { padding: 10px; } .hd-left { gap: 10px; } .hd-right .btn { padding: 10px 12px; font-size: .9rem; } }
 @media (max-width: 380px) { .logo-word { font-size: 1.05rem; } .logo img { width: 36px; height: 36px; } }
+.strip .phone { white-space: nowrap; }
