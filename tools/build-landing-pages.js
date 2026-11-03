@@ -3,6 +3,7 @@
 // Edit the PAGES list below to change wording, then run it and push.
 const fs = require('fs');
 const path = require('path');
+const { header, footer } = require('./site-chrome');
 
 const TAG = 'AW-18536573438';
 const GA4 = 'G-8VZ6EYQ9E5';
@@ -523,15 +524,7 @@ ${p.index ? `<link rel="canonical" href="${SITE}/${p.slug}">\n${jsonld(p)}` : '<
 </head>
 <body class="lp">
 
-<header class="lp-head">
-  <div class="wrap">
-    <a href="/${p.index ? '' : p.slug}" class="logo" aria-label="Hotshot Gears"><img src="/img/logo/hs-mark.svg" alt="" width="40" height="40"><span class="logo-word">Hotshot<b>Gears</b></span></a>
-    <div class="actions">
-      <a class="lp-phone" href="tel:${TEL}"><small>Call now</small>${PHONE}</a>
-      <a href="#lpCard" class="btn btn-red" data-scroll-form>Get a Quote</a>
-    </div>
-  </div>
-</header>
+${header('/' + p.slug, { quoteHref: '#lpCard', quoteAttr: ' data-scroll-form' })}
 
 <section class="lp-hero" style="--bg:url(${p.bg})">
   <div class="wrap">
@@ -651,11 +644,10 @@ ${p.about ? `
   </div>
 </section>
 
-${p.index ? `<nav class="lp-links" aria-label="More from Hotshot Gears"><div class="wrap"><a href="/">Home</a>${SEO.filter((s) => s !== p).map((s) => `<a href="/${s.slug}">${esc(s.crumb)}</a>`).join('')}<a href="/quote">Request a Quote</a></div></nav>\n` : ''}<footer class="lp-foot"><div class="wrap"><span>&copy; <span id="yr"></span> Hotshot Gears. Custom gears, built fast.</span><span><a href="mailto:hotshotgears@gmail.com">hotshotgears@gmail.com</a></span></div></footer>
+${footer('/' + p.slug)}
 
 <nav class="lp-bar" aria-label="Call or quote"><a class="call" href="tel:${TEL}">&#9742; Call</a><a class="quote" href="#lpCard" data-scroll-form>Get a Quote</a></nav>
 
-<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
 <script src="/js/track.js" defer></script>
 <script type="module" src="/js/lp.js"></script>
 </body>
@@ -668,4 +660,14 @@ fs.mkdirSync(out, { recursive: true });
 for (const p of PAGES) {
   fs.writeFileSync(path.join(out, p.slug + '.html'), page(p));
   console.log('built lp/' + p.slug + '.html');
+}
+
+// Same header and footer on the hand-written pages
+for (const [file, cur] of [['index.html', '/'], ['quote.html', '/quote']]) {
+  const f = path.join(__dirname, '..', file);
+  let html = fs.readFileSync(f, 'utf8');
+  html = html.replace(/<!-- site-header -->[\s\S]*?<!-- \/site-header -->/, () => header(cur));
+  html = html.replace(/<!-- site-footer -->[\s\S]*?<!-- \/site-footer -->/, () => footer(cur));
+  fs.writeFileSync(f, html);
+  console.log('updated ' + file);
 }

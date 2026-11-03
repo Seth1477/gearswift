@@ -3,7 +3,7 @@
 body.lp { padding-bottom: 70px; }
 @media (min-width: 820px) { body.lp { padding-bottom: 0; } }
 
-/* Minimal header: logo, phone, quote. No menu, so nobody wanders off. */
+/* Old minimal header (no longer used; pages share the site header) */
 .lp-head { background: #fff; border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 40; }
 .lp-head .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 12px; }
 .lp-head .logo { font-size: 1.35rem; }

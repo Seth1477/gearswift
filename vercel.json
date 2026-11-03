@@ -2,14 +2,64 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/replacement-gears", "destination": "/lp/replacement-gears" },
-    { "source": "/custom-gears", "destination": "/lp/custom-gears" },
-    { "source": "/urgent-gear-replacement", "destination": "/lp/urgent-gear-replacement" },
-    { "source": "/herringbone-gears", "destination": "/lp/herringbone-gears" },
-    { "source": "/spur-gears", "destination": "/lp/spur-gears" },
-    { "source": "/pump-jack-gears", "destination": "/lp/pump-jack-gears" },
-    { "source": "/planetary-gears", "destination": "/lp/planetary-gears" },
-    { "source": "/gear-reverse-engineering", "destination": "/lp/gear-reverse-engineering" },
-    { "source": "/gear-manufacturer-alberta", "destination": "/lp/gear-manufacturer-alberta" }
+    {
+      "source": "/replacement-gears",
+      "destination": "/lp/replacement-gears"
+    },
+    {
+      "source": "/custom-gears",
+      "destination": "/lp/custom-gears"
+    },
+    {
+      "source": "/urgent-gear-replacement",
+      "destination": "/lp/urgent-gear-replacement"
+    },
+    {
+      "source": "/herringbone-gears",
+      "destination": "/lp/herringbone-gears"
+    },
+    {
+      "source": "/spur-gears",
+      "destination": "/lp/spur-gears"
+    },
+    {
+      "source": "/pump-jack-gears",
+      "destination": "/lp/pump-jack-gears"
+    },
+    {
+      "source": "/planetary-gears",
+      "destination": "/lp/planetary-gears"
+    },
+    {
+      "source": "/gear-reverse-engineering",
+      "destination": "/lp/gear-reverse-engineering"
+    },
+    {
+      "source": "/gear-manufacturer-alberta",
+      "destination": "/lp/gear-manufacturer-alberta"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "hotshot-gears.vercel.app"
+        }
+      ],
+      "destination": "https://www.hotshotgears.ca/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/lp/:slug",
+      "destination": "/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/brand/:path*",
+      "destination": "/",
+      "permanent": true
+    }
   ]
 }

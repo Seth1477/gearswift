@@ -45,6 +45,7 @@
   <symbol id="gear" viewBox="0 0 100 100"><path fill="currentColor" d="M43 4h14l2 11a36 36 0 0 1 9 4l9-7 10 10-7 9a36 36 0 0 1 4 9l11 2v14l-11 2a36 36 0 0 1-4 9l7 9-10 10-9-7a36 36 0 0 1-9 4l-2 11H43l-2-11a36 36 0 0 1-9-4l-9 7-10-10 7-9a36 36 0 0 1-4-9L5 57V43l11-2a36 36 0 0 1 4-9l-7-9 10-10 9 7a36 36 0 0 1 9-4zM50 34a16 16 0 1 0 0 32 16 16 0 0 0 0-32z"/></symbol>
 </svg>
 
+<!-- site-header -->
 <div class="strip">
   <div class="wrap">
     <div><span class="maple">&#9670;</span>Canadian-built custom gears. Fast turnaround.</div>
@@ -54,15 +55,29 @@
 
 <header class="site-header">
   <div class="wrap">
-    <a href="/" class="logo" aria-label="Hotshot Gears home"><img src="img/logo/hs-mark.svg" alt="" width="48" height="48"><span class="logo-word">Hotshot<b>Gears</b></span></a>
-    <nav class="site-nav">
-      <a href="/#services">Services</a>
-      <a href="/#lead-times">Lead Times</a>
-      <a href="/#capabilities">Capabilities</a>
-      <a href="/#quality">Quality</a>
-    </nav>
+    <div class="hd-left">
+      <details class="menu">
+        <summary aria-label="Open the site menu"><span class="burger" aria-hidden="true"><i></i><i></i><i></i></span><span class="menu-word">Menu</span></summary>
+        <nav class="menu-panel" aria-label="Site pages">
+          <a href="/">Home</a>
+          <div class="menu-group"><span class="menu-h">Gears</span><a href="/herringbone-gears">Herringbone gears</a><a href="/pump-jack-gears">Pump jack gears</a><a href="/spur-gears">Spur gears</a><a href="/planetary-gears">Planetary gears</a></div>
+          <div class="menu-group"><span class="menu-h">Services</span><a href="/replacement-gears">Replacement gears</a><a href="/custom-gears">Custom gears</a><a href="/gear-reverse-engineering">Gear reverse engineering</a><a href="/urgent-gear-replacement">Urgent gear replacement</a><a href="/gear-manufacturer-alberta">Gear manufacturer in Alberta</a></div>
+          <a class="btn btn-red" href="/quote">Request a Quote</a>
+        </nav>
+      </details>
+      <a href="/" class="logo" aria-label="Hotshot Gears home"><img src="/img/logo/hs-mark.svg" alt="" width="48" height="48"><span class="logo-word">Hotshot<b>Gears</b></span></a>
+    </div>
+    <div class="hd-right">
+      <a class="hd-phone" href="tel:+18257772483"><small>Call now</small>825-777-2483</a>
+      <a href="/quote" class="btn btn-red">Get a Quote</a>
+    </div>
   </div>
 </header>
+<script>
+document.addEventListener('click', function (e) { document.querySelectorAll('details.menu[open]').forEach(function (d) { if (!d.contains(e.target) || e.target.closest('.menu-panel a')) d.open = false; }); });
+document.addEventListener('keydown', function (e) { if (e.key === 'Escape') document.querySelectorAll('details.menu[open]').forEach(function (d) { d.open = false; }); });
+</script>
+<!-- /site-header -->
 
 <section class="page-head">
   <div class="wrap">
@@ -382,14 +397,40 @@
   </aside>
 </div>
 
+<!-- site-footer -->
 <footer class="site-footer">
   <div class="wrap">
-    <div class="legal" style="padding-top:0">
-      <span>&copy; <span class="yr"></span> Hotshot Gears. Fast turnaround custom gears.</span>
-      <span>Your photos and files are only used to prepare your quote.</span>
+    <div class="cols">
+      <div>
+        <a href="/" class="logo" aria-label="Hotshot Gears home"><img src="/img/logo/hs-mark-dark.svg" alt="" width="48" height="48"><span class="logo-word">Hotshot<b>Gears</b></span></a>
+        <p style="max-width:340px">Herringbone, spur and planetary gears, pump jack gearbox gears, and custom replacement gears. Built in Leduc, Alberta, near Edmonton. Shipped across Canada.</p>
+      </div>
+      <div>
+        <h4>Gears</h4>
+        <ul><li><a href="/herringbone-gears">Herringbone gears</a></li><li><a href="/pump-jack-gears">Pump jack gears</a></li><li><a href="/spur-gears">Spur gears</a></li><li><a href="/planetary-gears">Planetary gears</a></li></ul>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul><li><a href="/replacement-gears">Replacement gears</a></li><li><a href="/custom-gears">Custom gears</a></li><li><a href="/gear-reverse-engineering">Gear reverse engineering</a></li><li><a href="/urgent-gear-replacement">Urgent gear replacement</a></li><li><a href="/gear-manufacturer-alberta">Gear manufacturer in Alberta</a></li></ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+18257772483">825-777-2483</a></li>
+          <li><a href="mailto:hotshotgears@gmail.com">hotshotgears@gmail.com</a></li>
+          <li><a href="/quote">Request a quote</a></li>
+          <li>Shipping across Canada and North America</li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <span>&copy; <span class="yr"></span> Hotshot Gears. All rights reserved.</span>
+      <span>Canadian built. Fast turnaround.</span>
     </div>
   </div>
 </footer>
+<script>document.querySelectorAll('.yr').forEach(function (e) { e.textContent = new Date().getFullYear(); });</script>
+<!-- /site-footer -->
 
 <!-- Printed blank form (see css/quote-print.css). Never shown on screen. -->
 <div class="print-form" aria-hidden="true">
