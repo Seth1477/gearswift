@@ -37,6 +37,10 @@
     {
       "source": "/gear-manufacturer-alberta",
       "destination": "/lp/gear-manufacturer-alberta"
+    },
+    {
+      "source": "/pump-jack-gear-quote",
+      "destination": "/lp/pump-jack-gear-quote"
     }
   ],
   "redirects": [

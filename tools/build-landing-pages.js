@@ -75,7 +75,7 @@ const PAGES = [
   },
 
   // Search pages: same layout, but indexed by Google, with their own copy, FAQ and structured data.
-  // Google Ads currently points at /pump-jack-gears.
+  // Google Ads points at /pump-jack-gear-quote (ad: true, further down).
   {
     slug: 'herringbone-gears',
     index: true,
@@ -292,6 +292,52 @@ const PAGES = [
     finalH: 'Pump jack gearbox down?',
     finalP: 'Send photos of the worn gear or pinion and we will quote it fast.',
   },
+  // Google Ads landing page: not indexed, no menu, pump jack only. The SEO page is /pump-jack-gears.
+  {
+    slug: 'pump-jack-gear-quote',
+    ad: true,
+    title: 'Pump Jack Gearbox Gears & Pinions | Free Quote | Hotshot Gears',
+    desc: 'Replacement herringbone bull gears, intermediate gears and pinion shafts for pump jack gear reducers. Send a photo, get a price and a firm ship date. Shipped across Canada.',
+    kicker: 'Pump jack gearbox gears',
+    h1: 'Pump jack gearbox gears, <span>built fast.</span>',
+    sub: 'Herringbone bull gears, intermediate gears and pinion shafts for pumping unit reducers. Send a photo of the worn gear and get a price with a firm ship date.',
+    ticks: ['Bull gears, intermediate gears and pinion shafts', 'Matched to the gear you keep, no drawing needed', 'Firm ship date on every quote', 'Built in Alberta, shipped anywhere in Canada'],
+    bg: '/img/work-herringbone.jpg',
+    formTitle: 'Get your pump jack gear quote',
+    formSub: 'Name and a phone or email is all we need. A photo of the worn gear helps.',
+    placeholder: 'e.g. Worn high-speed pinion on a pumping unit reducer, bull gear still good',
+    cta: 'Get My Free Quote',
+    urgency: '',
+    trust: [['Pump jack gearing', 'Bull gears, pinions, intermediates'], ['No drawing needed', 'Matched to your old gear'], ['Firm ship date', 'On every quote'], ['Ships across Canada', 'Built in Leduc, Alberta']],
+    gallery: [
+      ['/img/work-herringbone.jpg', 'Herringbone gear and pinion shafts', 'Large herringbone gear with helical pinion shafts'],
+      ['/img/replacement.jpg', 'Double-helical gear set', 'Double-helical gear and pinion set'],
+      ['/img/emergency.jpg', 'Open double-helical gearbox', 'Open gear reducer with double-helical gears'],
+      ['/img/gears/herringbone-gear-teeth-closeup.jpg', 'Herringbone teeth up close', 'Close-up of herringbone gear teeth meeting at the apex'],
+      ['/img/gears/large-helical-bull-gear.jpg', 'Large helical gear', 'Large helical gear on a cast hub'],
+      ['/img/gears/helical-pinion-shafts.jpg', 'Pinion shafts', 'Row of helical pinion shafts'],
+    ],
+    about: [
+      ["Replace the worn gearing, not the whole reducer", [
+        "Most pump jack gear reducers use double-reduction herringbone gearing: a high-speed pinion, an intermediate gear and pinion, and a large bull gear driving the crank. When the teeth pit, spall or break, the housing, shafts and bull gear are often still good. Replacing just the worn gearing gets the unit back in service for a fraction of the cost of a new reducer.",
+        "We measure your worn pinion or gear, check the mating gear, and build a replacement that meshes with what you keep. No drawing needed. Send photos next to a tape measure with the outside diameter, face width and tooth count, plus the nameplate rating if you have it.",
+      ]],
+    ],
+    make: [
+      ['Pump jack reducer parts', ['High-speed pinion shafts', 'Intermediate gears and pinions', 'Low-speed bull gears', 'Matched gear and pinion sets', 'Herringbone and double-helical gearing']],
+      ['Why operators and repair shops use us', ['Reverse engineered from your worn gear', 'Built to mesh with the gear you keep', 'Through-hardened or carburized gear steels', 'Inspected, with documentation', 'We work directly with your gearbox repair shop']],
+    ],
+    faq: [
+      ['Can you replace just the pinion?', 'Yes. The high-speed pinion usually wears first. We measure the mating gear so the new pinion matches its tooth geometry and centre distance. If the gear is worn too, we will tell you before you order.'],
+      ['What do I need to send for a quote?', 'Photos of the worn gear or pinion next to a tape measure, the outside diameter, face width and tooth count, and the reducer nameplate if you have it. No drawing needed.'],
+      ['How fast can you build it?', 'It depends on the size and heat treatment. Every quote comes with a firm ship date, and expedite options are available when a unit is down.'],
+      ['Do you rebuild the whole gear reducer?', 'We make the gears and pinion shafts. Your gearbox repair shop can install them, and we are happy to work directly with them.'],
+      ['Do you ship outside Alberta?', 'Yes. We ship pump jack gears to Saskatchewan, Manitoba, British Columbia and anywhere else in Canada.'],
+      ['Do you make car or truck gears?', 'No. We make industrial gears only, such as pump jack reducer gearing. We do not make automotive transmission or differential gears.'],
+    ],
+    finalH: 'Pump jack gearbox down?',
+    finalP: 'Send a photo of the worn gear or pinion and we will quote it fast.',
+  },
   {
     slug: 'planetary-gears',
     index: true,
@@ -445,6 +491,26 @@ const PAGES = [
 ];
 
 const SEO = PAGES.filter((p) => p.index);
+
+const TRUST = [['Fast turnaround', 'Lead times that beat the OEM'], ['From a photo', 'Reverse engineered to fit'], ['Inspected', 'Shipped with documentation'], ['Canadian built', 'Shipped wherever you are']];
+const MAKE = [
+  ['Part types', ['Herringbone (double-helical) gears', 'Pump jack reducer gears and pinions', 'Spur and helical gears', 'Planetary sun, planet and ring gears', 'Internal gears', 'Worms and threaded shafts', 'Splined gears and shafts', 'Sprockets and pinion shafts']],
+  ['Why customers choose us', ['Fast turnaround and expedite options', 'Hardened and ground, or pre-hard when speed matters', 'Single pieces to production runs', 'Inspected in-house, with documentation', 'Repeat orders get faster, tooling stays on file']],
+];
+
+// Ad pages (ad: true) get a bare header and footer: no menu, nothing to click away to
+// except the phone number and the form.
+const adHeader = () => `<header class="lp-head">
+  <div class="wrap">
+    <span class="logo" aria-label="Hotshot Gears"><img src="/img/logo/hs-mark.svg" alt="" width="40" height="40"><span class="logo-word">Hotshot<b>Gears</b></span></span>
+    <div class="actions">
+      <a class="lp-phone" href="tel:${TEL}"><small>Call now</small>${PHONE}</a>
+      <a href="#lpCard" class="btn btn-red" data-scroll-form>Get a Quote</a>
+    </div>
+  </div>
+</header>`;
+const adFooter = () => `<footer class="lp-foot"><div class="wrap"><span>&copy; <span class="yr"></span> Hotshot Gears, Leduc, Alberta. Industrial gears, built fast.</span><span><a href="mailto:hotshotgears@gmail.com">hotshotgears@gmail.com</a></span></div></footer>
+<script>document.querySelectorAll('.yr').forEach(function (e) { e.textContent = new Date().getFullYear(); });</script>`;
 const SITE = 'https://www.hotshotgears.ca';
 
 const ticksHtml = (a) => a.map((t) => `<li>${t}</li>`).join('');
@@ -524,7 +590,7 @@ ${p.index ? `<link rel="canonical" href="${SITE}/${p.slug}">\n${jsonld(p)}` : '<
 </head>
 <body class="lp">
 
-${header('/' + p.slug, { quoteHref: '#lpCard', quoteAttr: ' data-scroll-form' })}
+${p.ad ? adHeader() : header('/' + p.slug, { quoteHref: '#lpCard', quoteAttr: ' data-scroll-form' })}
 
 <section class="lp-hero" style="--bg:url(${p.bg})">
   <div class="wrap">
@@ -583,10 +649,7 @@ ${header('/' + p.slug, { quoteHref: '#lpCard', quoteAttr: ' data-scroll-form' })
 
 <section class="lp-trust">
   <div class="wrap">
-    <div><strong>Fast turnaround</strong>Lead times that beat the OEM</div>
-    <div><strong>From a photo</strong>Reverse engineered to fit</div>
-    <div><strong>Inspected</strong>Shipped with documentation</div>
-    <div><strong>Canadian built</strong>Shipped wherever you are</div>
+    ${(p.trust || TRUST).map(([b, t]) => `<div><strong>${b}</strong>${t}</div>`).join('')}
   </div>
 </section>
 ${p.about ? `
@@ -619,9 +682,8 @@ ${p.about ? `
 <section class="lp-sec">
   <div class="wrap">
     <h2 class="t">What we make</h2>
-    <div class="lp-two">
-      <div><h3>Part types</h3><ul class="lp-list"><li>Herringbone (double-helical) gears</li><li>Pump jack reducer gears and pinions</li><li>Spur and helical gears</li><li>Planetary sun, planet and ring gears</li><li>Internal gears</li><li>Worms and threaded shafts</li><li>Splined gears and shafts</li><li>Sprockets and pinion shafts</li></ul></div>
-      <div><h3>Why customers choose us</h3><ul class="lp-list"><li>Fast turnaround and expedite options</li><li>Hardened and ground, or pre-hard when speed matters</li><li>Single pieces to production runs</li><li>Inspected in-house, with documentation</li><li>Repeat orders get faster, tooling stays on file</li></ul></div>
+    <div class="lp-two">${(p.make || MAKE).map(([h, items]) => `
+      <div><h3>${esc(h)}</h3><ul class="lp-list">${items.map((t) => `<li>${esc(t)}</li>`).join('')}</ul></div>`).join('')}
     </div>
   </div>
 </section>
@@ -629,7 +691,7 @@ ${p.about ? `
 <section class="lp-sec paper">
   <div class="wrap">
     <h2 class="t">Questions</h2>
-    <div class="lp-faq">${faqOf(p).map(([q, a], i) => `<details${i === 0 ? ' open' : ''}><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</div>
+    <div class="lp-faq">${(p.ad ? p.faq : faqOf(p)).map(([q, a], i) => `<details${i === 0 ? ' open' : ''}><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</div>
   </div>
 </section>
 
@@ -644,7 +706,7 @@ ${p.about ? `
   </div>
 </section>
 
-${footer('/' + p.slug)}
+${p.ad ? adFooter() : footer('/' + p.slug)}
 
 <nav class="lp-bar" aria-label="Call or quote"><a class="call" href="tel:${TEL}">&#9742; Call</a><a class="quote" href="#lpCard" data-scroll-form>Get a Quote</a></nav>
 
