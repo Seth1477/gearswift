@@ -12,7 +12,7 @@ const TEL = '+18257772483';
 const FAQ = [
   ['How fast can you build a gear?', 'It depends on the size, the material and whether the gear needs heat treat and grinding. Send photos and we will come back with a firm ship date. Repeat orders are faster because your tooling and programs stay on file, and expedite options are available when equipment is down.'],
   ['Do I need a drawing?', 'No. A drawing is best, but clear photos of the old gear next to a ruler, plus the outside diameter, bore, face width and tooth count, are often enough. We reverse engineer the gear from the part.'],
-  ['What kinds of gears do you make?', 'Spur, helical and double-helical (herringbone) gears, internal gears, worms and threaded shafts, splined gears and shafts, sprockets, and pinion shafts. If it transmits motion, send it over and we will tell you if we can make it.'],
+  ['What kinds of gears do you make?', 'Industrial gears: spur, helical and double-helical (herringbone) gears, planetary sun, planet and ring gears, pump jack reducer gearing, internal gears, worms and threaded shafts, splined gears and shafts, sprockets, and pinion shafts. We do not make automotive gears. If it transmits motion in industrial equipment, send it over and we will tell you if we can make it.'],
   ['Can you make just one?', 'Yes. Single replacement gears and prototypes are welcome, and so are production runs and repeat orders.'],
   ['Will I get paperwork with the gear?', 'Every gear is inspected before it ships, and documentation is available with your order: certificate of conformance, material certs, heat treat certs and an inspection report.'],
 ];
@@ -74,7 +74,7 @@ const PAGES = [
   },
 
   // Search pages: same layout, but indexed by Google, with their own copy, FAQ and structured data.
-  // Ads keep pointing at the three pages above.
+  // Google Ads currently points at /pump-jack-gears.
   {
     slug: 'herringbone-gears',
     index: true,
@@ -96,7 +96,7 @@ const PAGES = [
     about: [
       ['What is a herringbone gear?', [
         'A herringbone gear, also called a double-helical gear, has two sets of helical teeth angled in opposite directions, meeting in a V down the middle of the face. Each half pushes sideways against the other, so the axial thrust cancels out. That lets the gear carry high loads smoothly and quietly without heavy thrust bearings.',
-        'That is why herringbone gears show up in the big, hard-working drives: mills, kilns, crushers, compressors, pumps, conveyors and large industrial gearboxes.',
+        'That is why herringbone gears show up in the big, hard-working drives: oilfield pump jack gear reducers, mills, kilns, crushers, compressors, pumps, conveyors and large industrial gearboxes.',
       ]],
       ['Replacing a worn herringbone gear or pinion', [
         'Original drawings for older double-helical gearboxes are often long gone, and the OEM may quote months for a replacement, if they still make it at all. We measure your worn gear or pinion, work out the tooth data, including helix angle, hand, module or diametral pitch and centre distance, and build a replacement that meshes with the gear you keep.',
@@ -144,6 +144,80 @@ const PAGES = [
     ],
     finalH: 'Need spur gears made?',
     finalP: 'Send a drawing or a few details and we will quote it fast.',
+  },
+  {
+    slug: 'pump-jack-gears',
+    index: true,
+    crumb: 'Pump Jack Gears',
+    service: 'Pump jack gearbox herringbone gear and pinion replacement',
+    title: 'Pump Jack Gearbox Gears | Herringbone Gear & Pinion Replacement | Hotshot Gears',
+    desc: 'Replacement herringbone gears and pinion shafts for pump jack gear reducers. Reverse engineered from your worn gear, built in Alberta and shipped across Canada.',
+    kicker: 'Pump jack gearbox gears',
+    h1: 'Pump jack gears, <span>built fast.</span>',
+    sub: 'Replacement herringbone (double-helical) bull gears, intermediate gears and pinion shafts for pumping unit gear reducers. Reverse engineered from your worn gear and shipped anywhere in Canada.',
+    ticks: ['Bull gears, intermediate gears and pinion shafts', 'Matched to the gear you keep, no drawing needed', 'Built in Alberta, shipped to every province'],
+    bg: '/img/work-herringbone.jpg',
+    formTitle: 'Get a pump jack gear quote',
+    formSub: 'Just your name and a phone or email. Photos of the old gear help.',
+    placeholder: 'e.g. Worn high-speed pinion on a 228 pumping unit reducer, gear still good',
+    cta: 'Get My Quote',
+    urgency: '',
+    gallery: [['/img/work-herringbone.jpg', 'Herringbone gear and pinion shafts'], ['/img/replacement.jpg', 'Double-helical gear set'], ['/img/emergency.jpg', 'Open double-helical gearbox']],
+    about: [
+      ['Herringbone gears for pump jack gear reducers', [
+        'Most beam pumping units run a double-reduction gear reducer built with herringbone (double-helical) gearing: a high-speed pinion shaft, an intermediate gear and pinion, and a large low-speed bull gear driving the crank. The opposed helices cancel thrust and carry the heavy, cyclic torque of a pump jack stroke for years, but pitting, spalling, scuffing and broken teeth eventually take a reducer out of service.',
+        'Hotshot Gears builds replacement herringbone gears and pinion shafts for pump jack gearbox repair. We work with oilfield service companies, gearbox repair shops and producers to replace the worn gearing, so a reducer can go back into service instead of being scrapped.',
+      ]],
+      ['Reverse engineered to mesh with the gear you keep', [
+        'Older pumping units often have no drawings, and new OEM gearing can be expensive or slow to get. We measure your worn pinion or gear, work out the tooth count, helix angle and hand, pitch, pressure angle and centre distance, and check the mating gear so the new part runs properly with it, not just a copy of the worn shape.',
+        'Send photos of the old gear next to a tape measure, with the outside diameter, face width, tooth count and the reducer rating from the nameplate if you have it. We will come back with a price and a firm ship date.',
+      ]],
+      ['Shipped across Canada', [
+        'Our shop is in Leduc, Alberta, close to the oilfield service hubs of Nisku and Edmonton. We ship pump jack gears to Alberta, Saskatchewan, Manitoba, British Columbia and the rest of Canada.',
+      ]],
+    ],
+    faq: [
+      ['Can you replace just the pinion in a pump jack gearbox?', 'Yes. The high-speed pinion usually wears first. We measure the mating gear so the new pinion matches its tooth geometry and centre distance. If the gear is worn too, we will tell you before you order.'],
+      ['Do you rebuild the whole gear reducer?', 'We make the gears and pinion shafts. If you need the reducer torn down, re-bearinged and reassembled, your gearbox repair shop can install our gearing, and we are happy to work directly with them.'],
+      ['Do you make gears for car, truck or automotive transmissions?', 'No. We make industrial gears, such as pump jack reducer gearing, herringbone, spur and planetary gears for heavy equipment. We do not make automotive transmission or differential gears.'],
+    ],
+    finalH: 'Pump jack gearbox down?',
+    finalP: 'Send photos of the worn gear or pinion and we will quote it fast.',
+  },
+  {
+    slug: 'planetary-gears',
+    index: true,
+    crumb: 'Planetary Gears',
+    service: 'Planetary gear manufacturing: sun, planet and ring gears',
+    title: 'Planetary Gears: Custom Sun, Planet & Ring Gears | Hotshot Gears',
+    desc: 'Custom and replacement planetary gears: sun gears, planet gears and internal ring gears for final drives, swing drives, winches and gearboxes. Built in Canada.',
+    kicker: 'Planetary gears',
+    h1: 'Planetary gears, <span>made to order.</span>',
+    sub: 'Sun gears, planet gears and internal ring gears for final drives, swing drives, winches and planetary gearboxes. Made to your drawing or reverse engineered from the worn part.',
+    ticks: ['Sun, planet and internal ring gears', 'Matched planet sets, made together', 'Reverse engineered from your old gears, a drawing or photos'],
+    bg: '/img/work-spline.jpg',
+    formTitle: 'Get a planetary gear quote',
+    formSub: 'Tell us what you need. A drawing or photos help, but are optional.',
+    placeholder: 'e.g. Set of 3 planet gears and sun gear for a winch planetary, 18 and 15 teeth',
+    cta: 'Get My Quote',
+    urgency: '',
+    gallery: [['/img/work-spline.jpg', 'Gear with internal spline'], ['/img/production.jpg', 'Matched spur gear pair'], ['/img/work-spur.jpg', 'Precision spur gear']],
+    about: [
+      ['What is a planetary gear set?', [
+        'A planetary (epicyclic) gear set has a central sun gear, several planet gears that orbit it on a carrier, and an internal ring gear around the outside. Because the load is shared across several planets, a planetary set packs a large reduction and high torque into a small, compact drive.',
+        'That makes planetary gears the heart of track and wheel final drives, swing drives, winch and hoist drives, mixer drives, slew drives and many industrial gear reducers.',
+      ]],
+      ['Replacement sun, planet and ring gears', [
+        'When a planetary drive fails, it is usually the planets or the sun gear that pit, spall or lose teeth first. We build replacement sun gears with splined bores or integral shafts, planet gears made as a matched set so they share load evenly, and internal ring gears to suit your housing.',
+        'Gear steels include 4140, 4340, 8620 and 9310, carburized and ground or through-hardened. Send the drawing, the worn gears, or photos with tooth counts and diameters, and we will come back with a price and a firm ship date.',
+      ]],
+    ],
+    faq: [
+      ['Should I replace all the planet gears at once?', 'Usually, yes. Planets share the load, so a new gear running beside worn ones carries more than its share. We make planet gears as a matched set so they wear evenly.'],
+      ['Can you make the internal ring gear?', 'Yes. Internal ring gears are made to your drawing or measured from the old ring, including any external splines, bolt patterns or mounting features.'],
+    ],
+    finalH: 'Need planetary gears made?',
+    finalP: 'Send a drawing or photos of the worn gears and we will quote it fast.',
   },
   {
     slug: 'gear-reverse-engineering',
@@ -388,7 +462,7 @@ ${p.about ? `
   <div class="wrap">
     <h2 class="t">What we make</h2>
     <div class="lp-two">
-      <div><h3>Part types</h3><ul class="lp-list"><li>Spur gears</li><li>Helical and double-helical (herringbone) gears</li><li>Internal gears</li><li>Worms and threaded shafts</li><li>Splined gears and shafts</li><li>Sprockets and pinion shafts</li></ul></div>
+      <div><h3>Part types</h3><ul class="lp-list"><li>Herringbone (double-helical) gears</li><li>Pump jack reducer gears and pinions</li><li>Spur and helical gears</li><li>Planetary sun, planet and ring gears</li><li>Internal gears</li><li>Worms and threaded shafts</li><li>Splined gears and shafts</li><li>Sprockets and pinion shafts</li></ul></div>
       <div><h3>Why customers choose us</h3><ul class="lp-list"><li>Fast turnaround and expedite options</li><li>Hardened and ground, or pre-hard when speed matters</li><li>Single pieces to production runs</li><li>Inspected in-house, with documentation</li><li>Repeat orders get faster, tooling stays on file</li></ul></div>
     </div>
   </div>

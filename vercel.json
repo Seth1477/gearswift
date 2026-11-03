@@ -7,6 +7,8 @@
     { "source": "/urgent-gear-replacement", "destination": "/lp/urgent-gear-replacement" },
     { "source": "/herringbone-gears", "destination": "/lp/herringbone-gears" },
     { "source": "/spur-gears", "destination": "/lp/spur-gears" },
+    { "source": "/pump-jack-gears", "destination": "/lp/pump-jack-gears" },
+    { "source": "/planetary-gears", "destination": "/lp/planetary-gears" },
     { "source": "/gear-reverse-engineering", "destination": "/lp/gear-reverse-engineering" },
     { "source": "/gear-manufacturer-alberta", "destination": "/lp/gear-manufacturer-alberta" }
   ]
