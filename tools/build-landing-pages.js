@@ -92,20 +92,71 @@ const PAGES = [
     placeholder: 'e.g. Double-helical gear, about 30 inch OD, 96 teeth, mating pinion worn',
     cta: 'Get My Quote',
     urgency: '',
-    gallery: [['/img/work-herringbone.jpg', 'Herringbone gear and pinion shafts'], ['/img/replacement.jpg', 'Double-helical gear set'], ['/img/emergency.jpg', 'Double-helical gearbox']],
+    gallery: [
+      ['/img/gears/herringbone-gear-teeth-closeup.jpg', 'Herringbone teeth, apex up close', 'Close-up of herringbone gear teeth meeting at the apex'],
+      ['/img/work-herringbone.jpg', 'Herringbone gear and pinion shafts', 'Large double-helical herringbone gear with helical pinion shafts behind it'],
+      ['/img/replacement.jpg', 'Double-helical gear set', 'Double-helical gear and pinion set on the bench'],
+      ['/img/emergency.jpg', 'Double-helical gearbox', 'Open industrial gearbox with double-helical gears'],
+      ['/img/gears/helical-pinion-shafts.jpg', 'Helical pinion shafts', 'Row of helical pinion shafts machined from bar'],
+      ['/img/gears/helical-pinion-shafts-production-run.jpg', 'Pinion shafts, production run', 'Production run of helical pinion shafts on a pallet'],
+    ],
     about: [
-      ['What is a herringbone gear?', [
-        'A herringbone gear, also called a double-helical gear, has two sets of helical teeth angled in opposite directions, meeting in a V down the middle of the face. Each half pushes sideways against the other, so the axial thrust cancels out. That lets the gear carry high loads smoothly and quietly without heavy thrust bearings.',
-        'That is why herringbone gears show up in the big, hard-working drives: oilfield pump jack gear reducers, mills, kilns, crushers, compressors, pumps, conveyors and large industrial gearboxes.',
+      ["What is a herringbone gear?", [
+        "A herringbone gear, also called a double-helical gear, has two sets of helical teeth angled in opposite directions, meeting in a V down the middle of the face. From the side the teeth look like the bones of a fish, which is where the name comes from. Each half pushes sideways against the other, so the axial thrust cancels out. That lets the gear carry high loads smoothly and quietly without heavy thrust bearings.",
+        "Strictly speaking, a true herringbone gear has teeth that meet at a sharp apex with no gap, while a double-helical gear has a groove or gap between the two helices. In the field the two names are used for the same family of gears, and we make both.",
       ]],
-      ['Replacing a worn herringbone gear or pinion', [
-        'Original drawings for older double-helical gearboxes are often long gone, and the OEM may quote months for a replacement, if they still make it at all. We measure your worn gear or pinion, work out the tooth data, including helix angle, hand, module or diametral pitch and centre distance, and build a replacement that meshes with the gear you keep.',
-        'Send photos of the old part next to a ruler, with the outside diameter, face width, bore and tooth count, and we will come back with a price and a firm ship date.',
+      ["Herringbone vs. helical vs. spur gears", [
+        { ul: [
+          "Spur gears: straight teeth, simple and efficient, but only one or two teeth carry load at a time, so they get noisy at high speed and are less suited to shock loads.",
+          "Single helical gears: angled teeth engage gradually and run smoother and quieter than spur gears, but the angle creates axial thrust that the bearings and housing must absorb.",
+          "Herringbone (double-helical) gears: the smoothness and load capacity of a helical gear with the thrust cancelled out. Ideal for large, heavily loaded, continuous-duty drives, at the cost of more complex manufacturing.",
+        ] },
+        "Because the thrust cancels, one shaft in a herringbone pair is usually left free to float a little axially, so the two helices share the load evenly. A single helical gear cannot simply be swapped in for a herringbone gear without redesigning the bearings to take the thrust.",
+      ]],
+      ["Industries that use herringbone gears", [
+        "Herringbone gears show up wherever high torque, continuous duty and shock loads meet. Common applications include:",
+        { ul: [
+          "Oil and gas: pump jack (beam pumping unit) gear reducers, triplex mud pumps, compressors and drilling rig drives.",
+          "Mining and mineral processing: ball mill and SAG mill drives, crushers, conveyors and hoists.",
+          "Cement and aggregate: kiln drives, raw and finish mills, and heavy conveyor drives.",
+          "Steel and metals: rolling mill pinion stands and mill drive gearboxes, the original home of the herringbone gear.",
+          "Pulp, paper and forestry: paper machine drives, calenders, chippers and debarkers.",
+          "Power generation: turbine gearboxes and large fan and pump drives.",
+          "Marine: propulsion reduction gears and heavy deck machinery.",
+          "Sugar, food and chemical processing: cane mills, mixers and large process gearboxes.",
+          "Rubber and plastics: mixer and extruder drives.",
+        ] },
+        { links: [['/pump-jack-gears', 'Pump jack gearbox gears'], ['/spur-gears', 'Spur gears'], ['/planetary-gears', 'Planetary gears']], lead: 'Related:' },
+      ]],
+      ["Signs a herringbone gear or pinion needs replacing", [
+        { ul: [
+          "Pitting and spalling: small craters or flaking on the tooth faces, usually starting near the pitch line.",
+          "Uneven wear between the two helices: often a sign the shaft cannot float or the gearbox is out of alignment.",
+          "Broken or chipped teeth: from shock loads, fatigue or debris passing through the mesh.",
+          "Rising noise, heat or vibration: a change in sound is often the first warning a mesh is going.",
+          "Excess backlash or axial movement: worn teeth or bearings let the gears shift more than they should.",
+        ] },
+        "The pinion makes more revolutions than the gear, so it usually wears first. Replacing a worn pinion before it damages the bull gear is far cheaper than replacing the whole set.",
+      ]],
+      ["Replacing a worn herringbone gear or pinion", [
+        "Original drawings for older double-helical gearboxes are often long gone, and the OEM may quote months for a replacement, if they still make it at all. We measure your worn gear or pinion, work out the tooth data, including helix angle, hand, module or diametral pitch and centre distance, and build a replacement that meshes with the gear you keep.",
+        "Send photos of the old part next to a ruler, with the outside diameter, face width, bore and tooth count, and we will come back with a price and a firm ship date.",
+      ]],
+      ["What we work with", [
+        { ul: [
+          "Gear types: herringbone and double-helical gears, bull gears, pinion shafts and matched sets.",
+          "Tooth data: metric module or diametral pitch, any helix angle and hand, with or without a centre gap.",
+          "Materials: gear steels such as 4140, 4340, 8620 and 9310, and other materials on request.",
+          "Heat treatment: through-hardened, or carburized and ground.",
+          "Documentation: certificate of conformance, material and heat treat certs, and inspection reports.",
+        ] },
       ]],
     ],
     faq: [
       ['Can you replace just the pinion in a herringbone set?', 'Yes. We measure the mating gear so the new pinion matches its tooth geometry and runs at the right centre distance. If the gear is worn too, we will tell you before you order.'],
       ['Do you make double-helical gears with a centre groove?', 'Yes. Many double-helical gears have a gap between the two helices, and we build to whatever your gear or drawing calls for.'],
+      ["What is the difference between a herringbone gear and a double-helical gear?", "Both have two opposed helices that cancel axial thrust. A herringbone gear has teeth that meet at a continuous apex, and a double-helical gear has a gap between the helices. Many people use the names interchangeably."],
+      ["Can I replace a herringbone gear with a single helical gear?", "Not directly. A single helical gear produces axial thrust that a herringbone gearbox is not built to carry. To fit the existing housing and bearings, the replacement should be double-helical too."],
     ],
     finalH: 'Need a herringbone gear?',
     finalP: 'Send a drawing or photos of the old gear and we will quote it fast.',
@@ -127,20 +178,69 @@ const PAGES = [
     placeholder: 'e.g. 22 tooth spur gear, 4.5 inch OD, 4140 steel, qty 10',
     cta: 'Get My Quote',
     urgency: '',
-    gallery: [['/img/work-spur.jpg', 'Precision spur gear'], ['/img/production.jpg', 'Matched spur gear pair'], ['/img/work-spline.jpg', 'Spur gear with splined bore']],
+    gallery: [
+      ['/img/work-spur.jpg', 'Precision spur gear', 'Precision spur gear with four counterbored bolt holes'],
+      ['/img/gears/black-oxide-spur-gears.jpg', 'Black oxide spur gears', 'Three large black-finished spur gears'],
+      ['/img/gears/precision-spur-gear-pair.jpg', 'Stacked spur gear pair', 'Two matching precision spur gears stacked on a granite plate'],
+      ['/img/production.jpg', 'Matched spur gear pair', 'Two matching precision spur gears side by side'],
+      ['/img/work-spline.jpg', 'Spur gear with splined bore', 'Spur gear with an internal spline bore'],
+      ['/img/gears/gear-hobbing-machine.jpg', 'Gear hobbing in our shop', 'Gear hobbing machine cutting gear teeth'],
+    ],
     about: [
-      ['Spur gears made to your spec', [
-        'Spur gears have straight teeth cut parallel to the shaft. They are simple, efficient and the most common gear in machinery, from pumps and conveyors to transmissions, winches and gear reducers.',
-        'We cut spur gears in metric module or diametral pitch, with whatever bore your shaft needs: plain, keyed, splined, or with a bolt pattern for a hub. Gear steels include 4140, 4340, 8620 and 9310, carburized and ground or through-hardened, and other materials on request.',
+      ["What is a spur gear?", [
+        "Spur gears have straight teeth cut parallel to the shaft. They are the simplest and most common type of gear, transmitting motion between parallel shafts with very high efficiency, often 98 to 99 percent per mesh. Because there is no tooth angle, spur gears create no axial thrust, which keeps bearings and housings simple.",
+        "A spur gear is defined by its tooth count, its tooth size (metric module or inch diametral pitch) and its pressure angle, most often 20 degrees on modern gears and 14.5 degrees on many older machines. Get those right, along with the bore and face width, and a replacement gear will mesh with the gear it runs against.",
       ]],
-      ['From one replacement gear to a production run', [
-        'Need one gear to get a machine running? Send the old one, or photos with the outside diameter, tooth count, face width and bore. Building new equipment? Send the drawing and we will review it before anything gets cut.',
-        'Once your gear is on file, reorders are faster because the tooling and CNC programs are already set up. Every order is inspected and can ship with a certificate of conformance, material certs and an inspection report.',
+      ["Spur gears vs. helical gears", [
+        { ul: [
+          "Spur gears: no thrust load, simple bearings, efficient and economical to make. Best at low to moderate speeds.",
+          "Helical gears: quieter and smoother at high speed because teeth engage gradually, but they create axial thrust.",
+        ] },
+        "For many drives, especially slower, heavily loaded ones, a well-made spur gear is the most reliable and cost-effective choice.",
+      ]],
+      ["Industries that use spur gears", [
+        "Spur gears are in almost every kind of machine. We make them for:",
+        { ul: [
+          "Oil and gas: pumps, winches, rig equipment and service truck drives.",
+          "Agriculture: combines, balers, seeders, augers and tractor implements.",
+          "Mining and construction: heavy equipment drives, winches, hoists and crushers.",
+          "Forestry and sawmills: conveyors, edgers, debarkers and log handling.",
+          "Material handling: conveyors, cranes, hoists and lifts.",
+          "Manufacturing: machine tools, presses, packaging and printing machinery.",
+          "Food processing: mixers, conveyors and processing lines.",
+          "Water and wastewater: clarifier drives, pumps and screens.",
+          "Gear reducers: input pinions and output gears for industrial speed reducers.",
+        ] },
+        { links: [['/herringbone-gears', 'Herringbone gears'], ['/planetary-gears', 'Planetary gears'], ['/gear-reverse-engineering', 'Gear reverse engineering']], lead: 'Related:' },
+      ]],
+      ["Spur gears made to your spec", [
+        "We cut spur gears in metric module or diametral pitch, with whatever bore your shaft needs: plain, keyed, splined, or with a bolt pattern for a hub. Spur pinions can be cut integral with the shaft, and internal spur gears are made to suit your housing.",
+        { ul: [
+          "Materials: 4140, 4340, 8620 and 9310 gear steels, and other materials on request.",
+          "Heat treatment: through-hardened, or carburized and ground for maximum wear life.",
+          "Finishes: black oxide and other finishes on request.",
+          "Bores: plain, keyed, set screw, internal spline or bolt pattern.",
+        ] },
+      ]],
+      ["Signs a spur gear needs replacing", [
+        { ul: [
+          "Pitting or spalling on the tooth faces.",
+          "Teeth worn to a point or hooked, or visible steps worn into the flanks.",
+          "Cracked, chipped or missing teeth.",
+          "A worn keyway or spline that lets the gear rock on its shaft.",
+          "New noise, vibration or heat from the gearbox.",
+        ] },
+      ]],
+      ["From one replacement gear to a production run", [
+        "Need one gear to get a machine running? Send the old one, or photos with the outside diameter, tooth count, face width and bore. Building new equipment? Send the drawing and we will review it before anything gets cut.",
+        "Once your gear is on file, reorders are faster because the tooling and CNC programs are already set up. Every order is inspected and can ship with a certificate of conformance, material certs and an inspection report.",
       ]],
     ],
     faq: [
       ['Do you cut metric and inch spur gears?', 'Yes. We make gears in metric module and in diametral pitch, and can tell which one your old gear is when we measure it.'],
       ['Can you put a spline or keyway in the bore?', 'Yes. Internal splines, keyways, set screws and bolt patterns are all common, and we match them to your shaft or hub.'],
+      ["How do I tell if my spur gear is metric or inch?", "Count the teeth and measure the outside diameter. For a standard metric gear, the outside diameter in millimetres divided by the tooth count plus two gives a round module. For an inch gear, the tooth count plus two divided by the outside diameter in inches gives a whole diametral pitch. Send us the numbers and we will confirm it."],
+      ["Should I replace both gears in a pair?", "If both are worn, yes, because a new gear running against a worn one wears faster. If only one is damaged and the mate is in good shape, we can build the replacement to suit it."],
     ],
     finalH: 'Need spur gears made?',
     finalP: 'Send a drawing or a few details and we will quote it fast.',
@@ -162,7 +262,14 @@ const PAGES = [
     placeholder: 'e.g. Worn high-speed pinion on a 228 pumping unit reducer, gear still good',
     cta: 'Get My Quote',
     urgency: '',
-    gallery: [['/img/work-herringbone.jpg', 'Herringbone gear and pinion shafts'], ['/img/replacement.jpg', 'Double-helical gear set'], ['/img/emergency.jpg', 'Open double-helical gearbox']],
+    gallery: [
+      ['/img/work-herringbone.jpg', 'Herringbone gear and pinion shafts', 'Large herringbone gear with helical pinion shafts, the type used in pump jack reducers'],
+      ['/img/replacement.jpg', 'Double-helical gear set', 'Double-helical gear and pinion set'],
+      ['/img/emergency.jpg', 'Open double-helical gearbox', 'Open gear reducer with double-helical gears'],
+      ['/img/gears/herringbone-gear-teeth-closeup.jpg', 'Herringbone teeth up close', 'Close-up of herringbone gear teeth meeting at the apex'],
+      ['/img/gears/large-helical-bull-gear.jpg', 'Large helical gear', 'Large helical gear on a cast hub'],
+      ['/img/gears/helical-pinion-shafts.jpg', 'Pinion shafts', 'Row of helical pinion shafts'],
+    ],
     about: [
       ['Herringbone gears for pump jack gear reducers', [
         'Most beam pumping units run a double-reduction gear reducer built with herringbone (double-helical) gearing: a high-speed pinion shaft, an intermediate gear and pinion, and a large low-speed bull gear driving the crank. The opposed helices cancel thrust and carry the heavy, cyclic torque of a pump jack stroke for years, but pitting, spalling, scuffing and broken teeth eventually take a reducer out of service.',
@@ -201,20 +308,65 @@ const PAGES = [
     placeholder: 'e.g. Set of 3 planet gears and sun gear for a winch planetary, 18 and 15 teeth',
     cta: 'Get My Quote',
     urgency: '',
-    gallery: [['/img/work-spline.jpg', 'Gear with internal spline'], ['/img/production.jpg', 'Matched spur gear pair'], ['/img/work-spur.jpg', 'Precision spur gear']],
+    gallery: [
+      ['/img/work-spline.jpg', 'Splined-bore gear', 'Gear with an internal spline bore'],
+      ['/img/gears/precision-spur-gear-pair.jpg', 'Matched gear pair', 'Two matching precision gears stacked on a granite plate'],
+      ['/img/gears/gear-hobbing-machine.jpg', 'Gear hobbing in our shop', 'Gear hobbing machine cutting gear teeth'],
+    ],
     about: [
-      ['What is a planetary gear set?', [
-        'A planetary (epicyclic) gear set has a central sun gear, several planet gears that orbit it on a carrier, and an internal ring gear around the outside. Because the load is shared across several planets, a planetary set packs a large reduction and high torque into a small, compact drive.',
-        'That makes planetary gears the heart of track and wheel final drives, swing drives, winch and hoist drives, mixer drives, slew drives and many industrial gear reducers.',
+      ["What is a planetary gear set?", [
+        "A planetary (epicyclic) gear set has a central sun gear, several planet gears that orbit it on a carrier, and an internal ring gear around the outside. Because the load is shared across several planets, a planetary set packs a large reduction and high torque into a small, compact drive, with the input and output on the same axis.",
       ]],
-      ['Replacement sun, planet and ring gears', [
-        'When a planetary drive fails, it is usually the planets or the sun gear that pit, spall or lose teeth first. We build replacement sun gears with splined bores or integral shafts, planet gears made as a matched set so they share load evenly, and internal ring gears to suit your housing.',
-        'Gear steels include 4140, 4340, 8620 and 9310, carburized and ground or through-hardened. Send the drawing, the worn gears, or photos with tooth counts and diameters, and we will come back with a price and a firm ship date.',
+      ["How a planetary gear set works", [
+        "In the most common arrangement the ring gear is held still, the sun gear is driven, and the planet carrier is the output. The carrier then turns slower than the sun, with a reduction ratio of one plus the ring tooth count divided by the sun tooth count. A sun gear with 18 teeth inside a ring with 72 teeth gives a 5:1 reduction in a single stage.",
+        "Holding a different member changes the ratio or reverses the output. Industrial drives often stack two or three planetary stages to reach ratios of 100:1 or more in a housing that fits inside a wheel hub or winch drum.",
+      ]],
+      ["Why planetary gears are used", [
+        { ul: [
+          "High torque density: the load is split across three or more planets, so a small gearbox carries a lot of torque.",
+          "Compact and coaxial: input and output share one centre line, ideal for wheel hubs, drums and in-line drives.",
+          "Large ratios in a small space: multiple stages stack easily.",
+          "Balanced loads: planets spaced evenly around the sun cancel radial forces on the bearings.",
+        ] },
+      ]],
+      ["Industries that use planetary gears", [
+        { ul: [
+          "Construction and mining equipment: excavator and dozer track drives, wheel loader and haul truck final drives, and swing drives.",
+          "Cranes and lifting: hoist and winch drives, slew and swing drives.",
+          "Oil and gas: drilling and service rig winches, top drive gearboxes and rig equipment.",
+          "Agriculture: tractor final drives, combine and sprayer wheel drives.",
+          "Forestry: harvester and feller buncher swing and track drives, and forwarder wheel drives.",
+          "Wind energy: the planetary stages of wind turbine main gearboxes.",
+          "Mixers: concrete mixer drum drives and industrial mixer and agitator drives.",
+          "Industrial reducers: in-line planetary gearboxes for conveyors, extruders and process equipment.",
+          "Marine: deck winches, cranes and thruster drives.",
+        ] },
+        { links: [['/herringbone-gears', 'Herringbone gears'], ['/spur-gears', 'Spur gears'], ['/gear-reverse-engineering', 'Gear reverse engineering']], lead: 'Related:' },
+      ]],
+      ["Replacement sun, planet and ring gears", [
+        { h3: "Sun gears" },
+        "The sun gear meshes with every planet on every revolution, so it sees the most load cycles in the set and is often the first part to pit or crack. We make sun gears with splined bores, integral shafts or splined stub ends to match your input.",
+        { h3: "Planet gears" },
+        "Planet gears share the load, so they need to match each other closely. We make them as a matched set, with bores to suit the planet bearings or pins in your carrier.",
+        { h3: "Ring gears" },
+        "Internal ring gears are made to your drawing or measured from the old ring, including external splines, bolt patterns or mounting features that locate them in the housing.",
+        "Gear steels include 4140, 4340, 8620 and 9310, carburized and ground or through-hardened. Send the drawing, the worn gears, or photos with tooth counts and diameters, and we will come back with a price and a firm ship date.",
+      ]],
+      ["Common planetary gear failures", [
+        { ul: [
+          "Pitting and spalling on the sun gear: the most heavily cycled gear in the set.",
+          "Planet bearing failure: a failed bearing lets a planet tip, overloading its teeth and the sun.",
+          "Broken teeth: from shock loads, overloads or debris in the oil.",
+          "Ring gear wear: uneven wear patterns often point to a carrier or bearing problem.",
+        ] },
+        "When one gear fails, check the rest of the set. Metal from a failed gear travels through the oil and damages everything it passes.",
       ]],
     ],
     faq: [
       ['Should I replace all the planet gears at once?', 'Usually, yes. Planets share the load, so a new gear running beside worn ones carries more than its share. We make planet gears as a matched set so they wear evenly.'],
       ['Can you make the internal ring gear?', 'Yes. Internal ring gears are made to your drawing or measured from the old ring, including any external splines, bolt patterns or mounting features.'],
+      ["What information do you need to quote planetary gears?", "Tooth counts for the sun, planets and ring, the outside diameters, face widths, and the bore or spline details. Photos of each gear next to a ruler help, and the make and model of the drive if you know it."],
+      ["Do you make gears for automotive automatic transmissions?", "No. We make planetary gears for industrial, heavy equipment and oilfield drives, not car or truck transmissions."],
     ],
     finalH: 'Need planetary gears made?',
     finalP: 'Send a drawing or photos of the worn gears and we will quote it fast.',
@@ -298,6 +450,19 @@ const ticksHtml = (a) => a.map((t) => `<li>${t}</li>`).join('');
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
 const faqOf = (p) => (p.faq || []).concat(FAQ);
 
+// One block of page copy: a string is a paragraph, {h3} a subheading, {ul} a list
+// ("Term: detail" items get a bold term), {links} a line of internal links.
+function block(b) {
+  if (typeof b === 'string') return `\n    <p>${esc(b)}</p>`;
+  if (b.h3) return `\n    <h3>${esc(b.h3)}</h3>`;
+  if (b.ul) return `\n    <ul class="lp-list lp-dl">${b.ul.map((t) => {
+    const i = t.indexOf(': ');
+    return i > 0 && i < 40 ? `<li><strong>${esc(t.slice(0, i))}:</strong> ${esc(t.slice(i + 2))}</li>` : `<li>${esc(t)}</li>`;
+  }).join('')}</ul>`;
+  if (b.links) return `\n    <p class="lp-see">${esc(b.lead || 'See also:')} ${b.links.map(([href, text]) => `<a href="${href}">${esc(text)}</a>`).join(' &middot; ')}</p>`;
+  throw new Error('unknown block ' + JSON.stringify(b));
+}
+
 // Breadcrumb, Service and FAQ structured data for the search pages
 function jsonld(p) {
   const url = `${SITE}/${p.slug}`;
@@ -307,6 +472,7 @@ function jsonld(p) {
       { '@type': 'ListItem', position: 2, name: p.crumb, item: url },
     ] },
     { '@type': 'Service', name: p.service, serviceType: p.service, url, description: p.desc,
+      image: p.gallery.map(([src]) => SITE + src),
       provider: { '@id': SITE + '/#organization' }, areaServed: [{ '@type': 'State', name: 'Alberta' }, { '@type': 'Country', name: 'Canada' }] },
     { '@type': 'FAQPage', mainEntity: faqOf(p).map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
   ];
@@ -432,9 +598,8 @@ ${p.index ? `<link rel="canonical" href="${SITE}/${p.slug}">\n${jsonld(p)}` : '<
 </section>
 ${p.about ? `
 <section class="lp-sec lp-prose">
-  <div class="wrap">${p.about.map(([h, ps]) => `
-    <h2 class="t">${esc(h)}</h2>${ps.map((t) => `
-    <p>${esc(t)}</p>`).join('')}`).join('')}
+  <div class="wrap">${p.about.map(([h, blocks]) => `
+    <h2 class="t">${esc(h)}</h2>${blocks.map(block).join('')}`).join('')}
   </div>
 </section>
 ` : ''}
@@ -454,7 +619,7 @@ ${p.about ? `
   <div class="wrap">
     <h2 class="t">Real gears from our shop</h2>
     <p class="lead">Small precision gears to heavy industrial drives.</p>
-    <div class="lp-gal">${p.gallery.map(([src, cap]) => `<figure><img src="${src}" alt="${esc(cap)}" loading="lazy"><figcaption>${esc(cap)}</figcaption></figure>`).join('')}</div>
+    <div class="lp-gal">${p.gallery.map(([src, cap, alt]) => `<figure><img src="${src}" alt="${esc(alt || cap)}" loading="lazy"><figcaption>${esc(cap)}</figcaption></figure>`).join('')}</div>
   </div>
 </section>
 

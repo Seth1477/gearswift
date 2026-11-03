@@ -140,3 +140,9 @@ body.lp { padding-bottom: 70px; }
 .lp-links .wrap { display: flex; flex-wrap: wrap; gap: 8px 22px; }
 .lp-links a { color: #c9ced3; text-decoration: none; font-size: .95rem; }
 .lp-links a:hover { color: #fff; }
+.lp-prose h3 { font-size: 1.35rem; margin-top: 26px; }
+.lp-prose .lp-list { margin-top: 12px; }
+.lp-prose .lp-dl li { color: var(--ink-2); line-height: 1.6; }
+.lp-prose .lp-dl strong { color: var(--ink); }
+.lp-see { font-size: 1rem !important; }
+.lp-see a { color: var(--red); font-weight: 600; }
