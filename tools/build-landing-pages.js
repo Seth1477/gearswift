@@ -185,7 +185,6 @@ const PAGES = [
       ['/img/gears/precision-spur-gear-pair.jpg', 'Stacked spur gear pair', 'Two matching precision spur gears stacked on a granite plate'],
       ['/img/production.jpg', 'Matched spur gear pair', 'Two matching precision spur gears side by side'],
       ['/img/work-spline.jpg', 'Spur gear with splined bore', 'Spur gear with an internal spline bore'],
-      ['/img/gears/gear-hobbing-machine.jpg', 'Gear hobbing in our shop', 'Gear hobbing machine cutting gear teeth'],
     ],
     about: [
       ["What is a spur gear?", [
@@ -358,7 +357,6 @@ const PAGES = [
     gallery: [
       ['/img/work-spline.jpg', 'Splined-bore gear', 'Gear with an internal spline bore'],
       ['/img/gears/precision-spur-gear-pair.jpg', 'Matched gear pair', 'Two matching precision gears stacked on a granite plate'],
-      ['/img/gears/gear-hobbing-machine.jpg', 'Gear hobbing in our shop', 'Gear hobbing machine cutting gear teeth'],
     ],
     about: [
       ["What is a planetary gear set?", [
