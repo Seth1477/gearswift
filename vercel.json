@@ -41,6 +41,10 @@
     {
       "source": "/pump-jack-gear-quote",
       "destination": "/lp/pump-jack-gear-quote"
+    },
+    {
+      "source": "/herringbone-gear-quote",
+      "destination": "/lp/herringbone-gear-quote"
     }
   ],
   "redirects": [
