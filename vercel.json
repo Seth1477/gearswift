@@ -45,6 +45,10 @@
     {
       "source": "/herringbone-gear-quote",
       "destination": "/lp/herringbone-gear-quote"
+    },
+    {
+      "source": "/custom-gear-quote",
+      "destination": "/lp/custom-gear-quote"
     }
   ],
   "redirects": [
